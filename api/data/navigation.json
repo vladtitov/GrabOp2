@@ -1,0 +1,76 @@
+{
+  "ver": 1,
+  "name":"navigation",
+  "css":{
+    "background-color":"#333",
+    "color":"#FFF"
+  },
+  "list": [
+    {
+      "id":1,
+      "label":"Home",
+      "href":"\/home",
+      "glyph": "dashboard"
+    },
+    {
+      "id":2,
+      "label":"profile",
+      "href":"\/profile",
+      "glyph": "profile"
+    },
+    {
+      "id":2,
+      "label":"messages",
+      "href":"\/messages",
+      "glyph": "message"
+    },
+    {
+      "id":3,
+      "label":"connections",
+      "href":"\/connections",
+      "glyph": "connections"
+    },
+    {
+      "id":3,
+      "label":"Opportunities",
+      "href":"\/opportunities",
+      "glyph": "signal"
+    },
+    {
+      "id":4,
+      "label":"projects",
+      "href":"\/projects",
+      "glyph": "projects"
+    },
+    {
+      "id":5,
+      "label":"alliances",
+      "href":"\/alliances",
+      "glyph": "inbox"
+    },
+    {
+      "id":6,
+      "label":"settings",
+      "href":"\/settings",
+      "glyph": "settings"
+    },
+    {
+      "id":7,
+      "label":"how it works",
+      "href":"\/how-it-works",
+      "glyph": "how"
+    },
+    {
+      "id":8,
+      "label":"terms of use",
+      "href":"\/terms-of-use",
+      "glyph": "terms"
+    },
+    {
+      "id":9,
+      "label":"contact us",
+      "href":"\/contact-us",
+      "glyph": "contact"
+    }
+  ]
+}
