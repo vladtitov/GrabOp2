@@ -1,0 +1,139 @@
+.debug{
+  display: block;
+}
+#JoinUsMain{
+  position: absolute;
+  width: 400px;
+  right:0;
+  transform: translateX(400px);
+  transition: transform 0.5s;
+
+}
+#JoinUsMain.in{
+transform: translateX(0);
+
+}
+.my-outlet{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+}
+.post-edit .image{
+  max-height: 126px;
+  max-width: 128px;
+  display: inline-block;
+}
+#Navigation, nav-main{
+  position: relative;
+  top:0;
+  left: 0;
+  z-index: 1000;
+  width: 0;
+  height: 0;
+}
+
+#Navigation nav{
+  position: absolute;
+  top:0;
+  left: 0;
+  transform: translateX(-100%);
+  display: inline-block;
+  padding: 12px;
+  transition: transform 0.5s;
+}
+
+#Navigation nav.open{
+  transform: translateX(0);
+}
+
+a.menu-active{
+  color: red;
+}
+
+/* Drop menu*/
+
+.drop-holder{
+  position: relative;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+}
+
+.drop-container{
+  position: absolute;
+  top:0;
+  left: 0;
+}
+.drop-items>a{
+  display: block;
+  white-space: nowrap;
+}
+
+/*  end Drop menu   */
+
+
+.loginform {
+  position: relative;
+  height: 100%;
+  text-align: center;
+  padding-top: 60px;
+}
+
+.loginform .panel{
+  background-color: white;
+}
+
+.loginform .logo {
+  margin: 0 0 20px;
+}
+
+.loginform h5 {
+  color: #FF0000;
+}
+.loginform h5.errorMessage {
+  color: #FF0000;
+}
+.loginform h5.message {
+  color: #008000;
+}
+
+.loginform hr {
+  width: 300px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.loginform .panel {
+  max-width: 430px;
+  margin: 0 auto 20px;
+  border-radius: 8px;
+  border: 2px solid #337ab7;
+  box-shadow: grey 5px 5px 10px;
+}
+.loginform .panel form {
+  padding: 0 40px;
+}
+.loginform .md-input-placeholder.md-focused {
+  color: #337ab7 !important;
+}
+.loginform .md-input-ripple.md-focused {
+  background-color: #337ab7 !important;
+}
+
+.loginform .panel .panel-footer {
+  padding: 20px;
+  display: block;
+  font-size: 17px;
+  color: #878797;
+  font-weight: 100;
+}
+.loginform a {
+  cursor: pointer;
+}
+
+.loginform span {
+  margin-right: 8px;
+}
+
+

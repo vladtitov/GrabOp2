@@ -1,0 +1,66 @@
+form label {
+  width: 100px;
+  display: inline-block;
+  text-align: right;
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+.field-error-message {
+  text-align: right;
+  padding-right: 68px;
+  font-size: 16px;
+  color: #a10000;
+}
+
+form fieldset {
+  margin-bottom: 20px;
+}
+
+form textarea {
+  width: 170px;
+}
+
+form input[type='radio'] {
+  box-shadow: none;
+  width: 20px;
+  vertical-align: bottom;
+  margin-left: 10px;
+}
+
+form button[type='submit'] {
+  float: right;
+  margin-right: 75px;
+}
+
+.debug {
+  clear: both;
+  font-size: 9px;
+}
+
+.debug h3 {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+
+.ng-dirty.ng-invalid {
+  border: 2px solid #ff2118;
+}
+
+.ng-touched.ng-invalid {
+  border: 2px solid #cc031b !important;
+}
+
+
+form.ng-dirty.ng-invalid {
+  border:none;
+}
+
+form.ng-touched.ng-invalid {
+  border:none !important;
+}
