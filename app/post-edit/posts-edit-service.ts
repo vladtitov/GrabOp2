@@ -77,8 +77,8 @@ export class PostEditService {
   })
 
   }
-  saveAttachment(data:VOImage,post_id:number):Promise<VOResult>{
 
+  saveAttachment(data:VOImage,post_id:number):Promise<VOResult>{
     var url:string =  VOSettings.server+'post/'+post_id+'/attachment/'+data.id;
 
     console.log(url,data);
