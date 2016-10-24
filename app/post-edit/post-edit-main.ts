@@ -11,34 +11,53 @@ import {UserService} from "../myservices/user-service";
   selector:'post-edit-main',
   template:`
 <div class="post-edit-main">
-      <h2>Post Edit <span>{{model.type}}</span></h2> 
-           <nav class="mynav">
-              <a class="basic" routerLink="../basic" routerLinkActive="menu-active"  >BSIC</a>
-              <a class="style" routerLink="../style" routerLinkActive="menu-active" >STYLE</a>  
-              <a class="assets" routerLink="../assets" routerLinkActive="menu-active" >Pnoto/Video</a>  
-              <a class="alliance" routerLink="../alliance" routerLinkActive="menu-active" >Alliance</a>
-          </nav>     
-      
-           <div>{{model.title}}</div>
-           <div>
-              <div *ngIf="myStep=='basic'" class="mytab">
-                  <post-edit-basic [model]="model" ></post-edit-basic>
-              </div>           
-              <div *ngIf="myStep=='style'" class="mytab">
-               <post-edit-style [model]="model" ></post-edit-style>
-              </div>
-              <div *ngIf="myStep=='assets'" class="mytab">
-                   <post-edit-media [model]="model"></post-edit-media>
-              </div>
-              <div *ngIf="myStep=='alliance'" class="mytab">
-                   <post-edit-alliance [model]="model"></post-edit-alliance>
-              </div>
-              <button (click)="onSaveClick()" >SAVE</button>
-          </div>   
-                
-
+        <div class="container">
+            <div class="panel panel-deffault">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <a  [routerLink]="['/']" routerLinkActive="active" class="btn fa fa-close float-sm-right"></a>
+                            <h4 class="text-sm-center"><strong>Update your Service and Alliance</strong><span>{{model.type}}</span></h4>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <nav class="nav nav-pills nav-stacked">
+                                <a routerLink="../basic" routerLinkActive="menu-active" class="nav-link">BASICS</a>
+                                <a routerLink="../style" routerLinkActive="menu-active" class="nav-link">BUSINESS STYLE</a>
+                                <a routerLink="../assets" routerLinkActive="menu-active" class="nav-link">PHOTOS / VIDEO</a>
+                                <a routerLink="../alliance" routerLinkActive="menu-active" class="nav-link">ALLIANCE</a>
+                            </nav>
+                        </div>
+                       <div>{{model.title}}</div>
+                       <div class="col-sm-6 bl">
+                          <div *ngIf="myStep=='basic'" class="mytab row">
+                              <post-edit-basic [model]="model" class="col-sm-10 offset-sm-2"></post-edit-basic>
+                          </div>           
+                          <div *ngIf="myStep=='style'" class="mytab row">
+                                <post-edit-style [model]="model" class="col-sm-10 offset-sm-2"></post-edit-style>
+                          </div>
+                          <div *ngIf="myStep=='assets'" class="mytab row">
+                               <post-edit-media [model]="model" class="col-sm-10 offset-sm-1"></post-edit-media>
+                          </div>
+                          <div *ngIf="myStep=='alliance'" class="mytab">
+                               <post-edit-alliance [model]="model"></post-edit-alliance>
+                          </div>
+                          <button class="btn btn-primary btn-lg float-sm-right" (click)="onSaveClick()" >update</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
-`
+`,
+    styles:[`
+        .bl{
+            border-left: solid 2px #c1c1c1;
+        }
+    `]
+
 })
 export class PostEditMain implements OnInit, OnChanges{
 
@@ -54,15 +73,22 @@ export class PostEditMain implements OnInit, OnChanges{
 
   }
 
-  onSaveClick():void{
+    onSaveClick():void{
    // console.log(this.myServiceService);
-
-    this.postEditService.savePost(this.model).subscribe(
-      res=>{
-        console.log(res)
-      }
-    )
-  }
+        if(this.model.id){
+            this.postEditService.updatePost(this.model).subscribe(
+                res=>{
+                    console.log('updatePost',res);
+                }
+            );
+        } else {
+            this.postEditService.insertPost(this.model).subscribe(
+                res=>{
+                    console.log('insertPost',res);
+                }
+            );
+        }
+    }
 
   ngOnChanges(obj:any):void{
 
@@ -74,12 +100,18 @@ export class PostEditMain implements OnInit, OnChanges{
   ngOnInit():void{
 
     this.aroute.params.subscribe(params=>{
-      console.log(params)
+      console.log(params);
       this.myStep =  params['step'] || 'basic';
-      let id = +params['id'];
+      let id = params['id'];
+        console.log('params', params);
+        if( params['type']){
+            this.model = new VOPost({type:params['type']});
+        } else {
+            this.loadPost(id);
+        }
 
-      if(this.model_id !==id) this.loadPost(id);
-    })
+      // if(this.model_id !==id) this.loadPost(id);
+    });
   //this.loadService();
   }
 

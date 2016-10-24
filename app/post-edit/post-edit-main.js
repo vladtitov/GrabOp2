@@ -26,9 +26,16 @@ var PostEditMain = (function () {
     }
     PostEditMain.prototype.onSaveClick = function () {
         // console.log(this.myServiceService);
-        this.postEditService.savePost(this.model).subscribe(function (res) {
-            console.log(res);
-        });
+        if (this.model.id) {
+            this.postEditService.updatePost(this.model).subscribe(function (res) {
+                console.log('updatePost', res);
+            });
+        }
+        else {
+            this.postEditService.insertPost(this.model).subscribe(function (res) {
+                console.log('insertPost', res);
+            });
+        }
     };
     PostEditMain.prototype.ngOnChanges = function (obj) {
         // console.log(obj)
@@ -39,9 +46,15 @@ var PostEditMain = (function () {
         this.aroute.params.subscribe(function (params) {
             console.log(params);
             _this.myStep = params['step'] || 'basic';
-            var id = +params['id'];
-            if (_this.model_id !== id)
+            var id = params['id'];
+            console.log('params', params);
+            if (params['type']) {
+                _this.model = new vos_1.VOPost({ type: params['type'] });
+            }
+            else {
                 _this.loadPost(id);
+            }
+            // if(this.model_id !==id) this.loadPost(id);
         });
         //this.loadService();
     };
@@ -57,7 +70,8 @@ var PostEditMain = (function () {
     PostEditMain = __decorate([
         core_1.Component({
             selector: 'post-edit-main',
-            template: "\n<div class=\"post-edit-main\">\n      <h2>Post Edit <span>{{model.type}}</span></h2> \n           <nav class=\"mynav\">\n              <a class=\"basic\" routerLink=\"../basic\" routerLinkActive=\"menu-active\"  >BSIC</a>\n              <a class=\"style\" routerLink=\"../style\" routerLinkActive=\"menu-active\" >STYLE</a>  \n              <a class=\"assets\" routerLink=\"../assets\" routerLinkActive=\"menu-active\" >Pnoto/Video</a>  \n              <a class=\"alliance\" routerLink=\"../alliance\" routerLinkActive=\"menu-active\" >Alliance</a>\n          </nav>     \n      \n           <div>{{model.title}}</div>\n           <div>\n              <div *ngIf=\"myStep=='basic'\" class=\"mytab\">\n                  <post-edit-basic [model]=\"model\" ></post-edit-basic>\n              </div>           \n              <div *ngIf=\"myStep=='style'\" class=\"mytab\">\n               <post-edit-style [model]=\"model\" ></post-edit-style>\n              </div>\n              <div *ngIf=\"myStep=='assets'\" class=\"mytab\">\n                   <post-edit-media [model]=\"model\"></post-edit-media>\n              </div>\n              <div *ngIf=\"myStep=='alliance'\" class=\"mytab\">\n                   <post-edit-alliance [model]=\"model\"></post-edit-alliance>\n              </div>\n              <button (click)=\"onSaveClick()\" >SAVE</button>\n          </div>   \n                \n\n</div>\n"
+            template: "\n<div class=\"post-edit-main\">\n        <div class=\"container\">\n            <div class=\"panel panel-deffault\">\n                <div class=\"panel-body\">\n                    <div class=\"row\">\n                        <div class=\"col-md-8\">\n                            <a  [routerLink]=\"['/']\" routerLinkActive=\"active\" class=\"btn fa fa-close float-sm-right\"></a>\n                            <h4 class=\"text-sm-center\"><strong>Update your Service and Alliance</strong><span>{{model.type}}</span></h4>\n                        </div>\n                    </div>\n                    \n                    <div class=\"row\">\n                        <div class=\"col-sm-2\">\n                            <nav class=\"nav nav-pills nav-stacked\">\n                                <a routerLink=\"../basic\" routerLinkActive=\"menu-active\" class=\"nav-link\">BASICS</a>\n                                <a routerLink=\"../style\" routerLinkActive=\"menu-active\" class=\"nav-link\">BUSINESS STYLE</a>\n                                <a routerLink=\"../assets\" routerLinkActive=\"menu-active\" class=\"nav-link\">PHOTOS / VIDEO</a>\n                                <a routerLink=\"../alliance\" routerLinkActive=\"menu-active\" class=\"nav-link\">ALLIANCE</a>\n                            </nav>\n                        </div>\n                       <div>{{model.title}}</div>\n                       <div class=\"col-sm-6 bl\">\n                          <div *ngIf=\"myStep=='basic'\" class=\"mytab row\">\n                              <post-edit-basic [model]=\"model\" class=\"col-sm-10 offset-sm-2\"></post-edit-basic>\n                          </div>           \n                          <div *ngIf=\"myStep=='style'\" class=\"mytab row\">\n                                <post-edit-style [model]=\"model\" class=\"col-sm-10 offset-sm-2\"></post-edit-style>\n                          </div>\n                          <div *ngIf=\"myStep=='assets'\" class=\"mytab row\">\n                               <post-edit-media [model]=\"model\" class=\"col-sm-10 offset-sm-1\"></post-edit-media>\n                          </div>\n                          <div *ngIf=\"myStep=='alliance'\" class=\"mytab\">\n                               <post-edit-alliance [model]=\"model\"></post-edit-alliance>\n                          </div>\n                          <button class=\"btn btn-primary btn-lg float-sm-right\" (click)=\"onSaveClick()\" >update</button>\n                      </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n</div>\n",
+            styles: ["\n        .bl{\n            border-left: solid 2px #c1c1c1;\n        }\n    "]
         }), 
         __metadata('design:paramtypes', [posts_edit_service_1.PostEditService, router_1.ActivatedRoute, user_service_1.UserService])
     ], PostEditMain);

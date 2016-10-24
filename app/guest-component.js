@@ -20,7 +20,7 @@ var GuestComponent = (function () {
     GuestComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n<div> \n<div  id=\"Navigation\">\n<nav-main></nav-main>\n</div>\n    <nav>    \n      <a [routerLink]=\"[{outlets:{ important: ['join-us'] } }]\" routerLinkActive=\"menu-active\" [routerLinkActiveOptions]=\"{ exact: true }\">Join US</a>\n      <!--<a routerLink=\"/join-us/username\" routerLinkActive=\"menu-active\">JOIN US 2</a> -->\n      <a  [routerLink]=\"[{outlets:{ important: ['sign-in'] } }]\" routerLinkActive=\"menu-active\" >Login</a>\n    </nav>    \n   \n    <div id=\"MyMainOutlet\">\n     <router-outlet></router-outlet> \n    </div>     \n      <div class=\"my-outlet\">\n          <router-outlet name=\"important\"></router-outlet> \n      </div>     \n      \n</div>\n"
+            template: "\n<div> \n<div  id=\"Navigation\">\n<nav-main></nav-main>\n</div>\n    <nav>    \n      <a [routerLink]=\"[{outlets:{ important: ['join-us'] } }]\" routerLinkActive=\"menu-active\" [routerLinkActiveOptions]=\"{ exact: true }\">Join US</a>\n      <!--<a routerLink=\"/join-us/username\" routerLinkActive=\"menu-active\">JOIN US 2</a> -->\n      <a  [routerLink]=\"[{outlets:{ important: ['login'] } }]\" routerLinkActive=\"menu-active\" >Login</a>\n    </nav>    \n   \n    <div id=\"MyMainOutlet\">\n     <router-outlet></router-outlet> \n    </div>     \n      <div class=\"my-outlet\">\n          <router-outlet name=\"important\"></router-outlet> \n      </div>     \n      \n</div>\n"
         }), 
         __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute])
     ], GuestComponent);

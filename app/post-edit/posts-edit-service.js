@@ -91,11 +91,23 @@ var PostEditService = (function () {
         this.selectedId = id;
         this._selectById();
     };
-    PostEditService.prototype.savePost = function (post) {
-        var url = vos_1.VOSettings.server + '/post/' + post.id;
+    PostEditService.prototype.updatePost = function (post) {
+        // var url:string = VOSettings.server+'/post/'+post.id;
+        var url = vos_1.VOSettings.posts;
         //  var post:VOPost = this._currentService;
         console.log(url, post);
-        return this.http.post(url, post)
+        return this.http.patch(url, post)
+            .map(function (res) {
+            console.log(res);
+            return new vos_1.VOResult(res.json());
+        }).catch(this.handleError);
+    };
+    PostEditService.prototype.insertPost = function (post) {
+        // var url:string = VOSettings.server+'/post/'+post.id;
+        var url = vos_1.VOSettings.posts;
+        //  var post:VOPost = this._currentService;
+        console.log(url, post);
+        return this.http.put(url, post)
             .map(function (res) {
             console.log(res);
             return new vos_1.VOResult(res.json());

@@ -24,7 +24,7 @@ class Login{
 		}
 	}
 	function dologin($api,$post){
-			
+
 		$db = new DBDriver($this->folder);
 		$sql='SELECT * FROM accounts WHERE username=? AND password=?';		
 		//return md5($post['Password']);

@@ -143,6 +143,7 @@ var VOSettings = (function () {
     VOSettings.saveVisit = function (loc) { localStorage.setItem('lastVisit', JSON.stringify(loc)); };
     VOSettings.getVisit = function () { return JSON.parse(localStorage.getItem('lastVisit')); };
     //static server:string = 'http://grabopapi2dev.us-west-2.elasticbeanstalk.com/api/v1';
+    VOSettings.posts = 'api/posts.php';
     VOSettings.server = 'api/service.php?api=';
     VOSettings.upload = 'api/upload.php';
     VOSettings.login = 'api/login.php?api=';

@@ -117,18 +117,31 @@ export class PostEditService {
 
   }
 
-  savePost(post:VOPost):Observable<any>{
-        var url:string = VOSettings.server+'/post/'+post.id;
+    updatePost(post:VOPost):Observable<any>{
+        // var url:string = VOSettings.server+'/post/'+post.id;
+        var url:string = VOSettings.posts;
       //  var post:VOPost = this._currentService;
-    console.log(url,post);
+        console.log(url,post);
 
-        return this.http.post(url,post)
+        return this.http.patch(url,post)
           .map((res:Response)=>{
-          console.log(res);
-          return new VOResult(res.json())
+            console.log(res);
+            return new VOResult(res.json())
         }).catch(this.handleError)
     }
 
+    insertPost(post:VOPost):Observable<any>{
+        // var url:string = VOSettings.server+'/post/'+post.id;
+        var url:string = VOSettings.posts;
+        //  var post:VOPost = this._currentService;
+        console.log(url,post);
+
+        return this.http.put(url,post)
+            .map((res:Response)=>{
+                console.log(res);
+                return new VOResult(res.json())
+            }).catch(this.handleError)
+    }
 
   private handleError (error: any) {
     let errMsg = (error.message) ? error.message :

@@ -34,7 +34,7 @@ var indexRoute = { path: '', component: land_main_1.LandMain };
 var fallBackRoute = { path: '**', component: land_main_1.LandMain };
 exports.routeConfig = [
     { path: 'landing', component: land_main_1.LandMain },
-    { path: 'login', component: to_login_1.ToLogin },
+    { path: 'login', component: login_login_1.LoginLogin, outlet: 'important' },
     { path: 'join-us', component: join_us_main_1.JoinUsMain, outlet: 'important' },
     { path: 'join-us', component: join_us_main_1.JoinUsMain },
     indexRoute,

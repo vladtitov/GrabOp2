@@ -11,34 +11,50 @@ import {UploadService} from "../myservices/upload-service";
   selector:'post-edit-media',
   template:`
 <div class="post-edit">
-     <h5 class="text-md-center">Media</h5>  
+     <h6 class="text-sm-right">Offering:Service Title</h6> 
          
            <div >
               <h5>Photos</h5>
               <div>
-                <div *ngFor="let image of images">
-                    <div (click)="onImageClick(image)" [class.selected]="image.selected">
-                      <img  class="image" src="{{image.src}}"/>                    
+                <div *ngFor="let image of images" class="d-inline-block">
+                    <div (click)="onImageClick(image)" [class.selected]="image.selected" class="d-inline-block">
+                      <img  class="img-thumbnail img-size-64" src="{{image.src}}"/>
                     </div>
-                
                 </div>
-                <form #imageForm enctype="multipart/form-data">
-                    <input type="file" name="file" (change)="onImageUploadChange($event)" />
-                    <button (click)="onDeleteClick()">Delete</button>
+                
+                <form #imageForm enctype="multipart/form-data" class="d-inline-block">
+                    <label class="btn btn-default btn-file img-thumbnail img-size-64 fa fa-download bg-faded">
+                        <!--<img  class="img-thumbnail img-size-64 bg-faded"/>-->
+                        <input style="display: none;" name='file' ngModel type='file' (change)="onImageUploadChange($event)"/>
+                    </label>
+                    <!--<input type="file" name="file" (change)="onImageUploadChange($event)" />-->
                 </form>
+                <a class="btn fa fa-times-circle" (click)="onDeleteClick()"></a>
               </div>
            
            </div>
            <div>
               <h5>Videos</h5>
-                  <div>
-                  
-                  </div>           
+              <div>
+                <form #imageForm enctype="multipart/form-data">
+                    <label class="btn btn-default btn-file fa fa-download">
+                        <input style="display: none;" name='file' ngModel type='file' (change)="onImageUploadChange($event)"/>
+                    </label>
+                    <!--<input type="file" name="file" (change)="onImageUploadChange($event)" />-->
+                    <a class="btn fa fa-times-circle" (click)="onDeleteClick()"></a>
+                </form>
+              </div>           
           </div>
           <div>
             <h5>Documents</h5>
               <div>
-              
+                <form #imageForm enctype="multipart/form-data">
+                    <label class="btn btn-default btn-file fa fa-download">
+                        <input style="display: none;" name='file' ngModel type='file' (change)="onImageUploadChange($event)"/>
+                    </label>
+                    <!--<input type="file" name="file" (change)="onImageUploadChange($event)" />-->
+                    <a class="btn fa fa-times-circle" (click)="onDeleteClick()"></a>
+                </form>
               </div>
           
           </div>
@@ -50,7 +66,7 @@ import {UploadService} from "../myservices/upload-service";
 export class PostEditMedia implements OnInit, OnChanges{
 
   @Input() model:VOPost;
-  images:VOImage[]
+  images:VOImage[];
   @Input() model_id:number;
   imageForm;
   currentImage:VOImage;

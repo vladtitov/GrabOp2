@@ -1,10 +1,10 @@
-form label {
-  width: 100px;
-  display: inline-block;
-  text-align: right;
-  vertical-align: top;
-  margin-right: 5px;
-}
+/*form label {*/
+  /*width: 100px;*/
+  /*display: inline-block;*/
+  /*text-align: right;*/
+  /*vertical-align: top;*/
+  /*margin-right: 5px;*/
+/*}*/
 
 .field-error-message {
   text-align: right;
@@ -63,4 +63,10 @@ form.ng-dirty.ng-invalid {
 
 form.ng-touched.ng-invalid {
   border:none !important;
+}
+
+.img-size-64 {
+    width: 64px;
+    height: 64px;
+    margin: 5px;
 }

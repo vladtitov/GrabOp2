@@ -12,7 +12,8 @@ $out = new stdClass();
 switch($api[0]){
 	case 'auth':
 	$login = new Login();
-	$out = $login->dologin($api,$post);	
+	$out = $login->dologin($api,$post);
+        break;
 	case 'logout':	
 	$login = new Login();
 	$out = $login->logout($api,$post);	

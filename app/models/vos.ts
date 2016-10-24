@@ -36,7 +36,7 @@ export class  VOImage {
   static MEDIUM:string = 't_medium';
   static LARGE:string = 't_large';
   static XLARGE:string = 't_xlarge';
-  src:string
+  src:string;
   id:number;
   name:string;
   type:string;
@@ -237,6 +237,7 @@ export class VOUserExt extends VOUser{
 
 export class VOSettings{
   //static server:string = 'http://grabopapi2dev.us-west-2.elasticbeanstalk.com/api/v1';
+    static  posts:string = 'api/posts.php';
   static server:string = 'api/service.php?api=';
   static upload:string ='api/upload.php';
   static login:string ='api/login.php?api=';

@@ -9,7 +9,7 @@ import {PostEditService} from "./posts-edit-service";
   selector:'post-edit-alliance',
   template:`
 <div>
-      <h5 class="text-md-center">Alliance</h5>             
+      <h6 class="text-sm-right">Offering:Service Title</h6>
            <form #myForm="ngForm">                      
                <div class="form-group has-danger m-b-0">
                     <label class="custom-control custom-checkbox">

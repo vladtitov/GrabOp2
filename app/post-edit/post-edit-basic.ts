@@ -8,49 +8,44 @@ import {PostEditService} from "./posts-edit-service";
 @Component({
   selector:'post-edit-basic',
   template:`
-<div>    <h5 class="text-md-center">Basic</h5>  
-      <form #f="ngForm">
-                 <div class="from-field">     
-                  <label>Title</label>                 
-                    <input type="text"  [(ngModel)]="model.title" name="name">                  
+<div>    
+      <h6 class="text-sm-right">Offering:Service Title</h6>  
+      <form #f="ngForm" class="form-horizontal">
+                <div class="form-group row">     
+                  <label class="col-sm-3 control-label">Service Title</label>
+                  <input class="col-sm-5" [(ngModel)]="model.title" name="name">                  
                 </div>
                 
-               <div class="from-field">  
-                  <label>Country</label>                  
-                    <input [(ngModel)]="model.country" name="country" >                 
+               <div class="form-group row">  
+                  <label class="col-sm-3 control-label">Country</label>                  
+                  <input class="col-sm-5" [(ngModel)]="model.country" name="country" >                 
                 </div>
                 
-                <div class="from-field">  
-                  <label>Province</label>                  
-                    <input  [(ngModel)]="model.province" name="province">                  
+                <div class="form-group row">  
+                  <label class="col-sm-3 control-label">Province</label>                  
+                  <input class="col-sm-5" [(ngModel)]="model.province" name="province">                  
                 </div>
                 
-               <div class="from-field">  
-                  <label>City</label>                  
-                    <input [(ngModel)]="model.city"  name="city">
+               <div class="form-group row">  
+                  <label class="col-sm-3 control-label">City</label>                  
+                  <input class="col-sm-5" [(ngModel)]="model.city"  name="city">
                 
                 </div>
-               <div class="from-field">  
-                  <label>Category</label>
-                 
-                  <select  [(ngModel)]="model.categoryid" name="categoryid">
-                                   <option *ngFor="let category of categories" [ngValue]="category.id">{{category.label}}</option>
-                  </select>                   
-                  
+               <div class="form-group row">  
+                  <label class="col-sm-3">Category</label>
+                      <select class="col-sm-5" [(ngModel)]="model.categoryid" name="categoryid">
+                           <option *ngFor="let category of categories" [ngValue]="category.id">{{category.label}}</option>
+                      </select>                   
                 </div>
-                <div class="from-field">  
-                  <label>Keywords</label>
-                  <div>
-                    <textarea [(ngModel)]="model.keywords" name="keywords" ></textarea>
-                  </div>
+                <div class="form-group row">  
+                  <label class="col-sm-3 control-label">Keywords</label>
+                  <textarea class="col-sm-5" [(ngModel)]="model.keywords" name="keywords" ></textarea>
                 </div>
-                <div class="from-field"> 
-                  <label >Description</label>
-                  <div>
-                    <textarea [(ngModel)]="model.description" name="description"> </textarea>
-                  </div>
+                <div class="form-group row"> 
+                  <label class="col-sm-3 control-label">Description</label>
+                  <textarea  class="col-sm-5"[(ngModel)]="model.description" name="description"> </textarea>
                 </div>                
-        </form>
+      </form>
         
          <div class="debug">{{ model | json }}</div>
 </div>

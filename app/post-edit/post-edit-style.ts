@@ -9,11 +9,11 @@ import {PostEditService} from "./posts-edit-service";
   selector:'post-edit-style',
   template:`
 <div >
-      <h5 class="text-md-center">Style</h5>            
-           <form #f="ngForm">
+           <h6 class="text-sm-right">Offering:Service Title</h6>            
+           <form #f="ngForm" class="form-horizontal">
               <div>                    
                   <div class="form-group has-success">
-                    <label class="custom-control custom-checkbox">
+                    <label class="custom-control custom-checkbox col-sm-offset-2">
                       <input type="checkbox" class="custom-control-input" [(ngModel)]="model.businessPartnership" name="businessPartnership">
                       <span class="custom-control-indicator"></span>
                       <span class="custom-control-description">Business Partnership</span>
@@ -21,7 +21,7 @@ import {PostEditService} from "./posts-edit-service";
                   </div>
                   
                   <div class="form-group has-warning">
-                    <label class="custom-control custom-checkbox">
+                    <label class="custom-control custom-checkbox col-sm-offset-2">
                       <input type="checkbox" class="custom-control-input" [(ngModel)]="model.exchange" name="exchange">
                       <span class="custom-control-indicator"></span>
                       <span class="custom-control-description">Exchange</span>
@@ -29,7 +29,7 @@ import {PostEditService} from "./posts-edit-service";
                   </div>
                   
                   <div class="form-group has-danger m-b-0">
-                    <label class="custom-control custom-checkbox">
+                    <label class="custom-control custom-checkbox col-sm-offset-2">
                       <input type="checkbox" class="custom-control-input" [(ngModel)]="model.donate" name="donate">
                       <span class="custom-control-indicator"></span>
                       <span class="custom-control-description">Donate</span>
@@ -37,7 +37,7 @@ import {PostEditService} from "./posts-edit-service";
                   </div>
                   
                   <div class="form-group has-warning">
-                    <label class="custom-control custom-checkbox">
+                    <label class="custom-control custom-checkbox col-sm-offset-2">
                       <input type="checkbox" class="custom-control-input" [(ngModel)]="model.internship" name="internship">
                       <span class="custom-control-indicator"></span>
                       <span class="custom-control-description">Intership</span>
@@ -45,7 +45,7 @@ import {PostEditService} from "./posts-edit-service";
                   </div>
                   
                   <div class="form-group has-danger m-b-0">
-                    <label class="custom-control custom-checkbox">
+                    <label class="custom-control custom-checkbox col-sm-offset-2">
                       <input type="checkbox" class="custom-control-input" [(ngModel)]="model.money" name="money">
                       <span class="custom-control-indicator"></span>
                       <span class="custom-control-description">Money</span>
@@ -54,22 +54,20 @@ import {PostEditService} from "./posts-edit-service";
               </div>
               
               <div>
-                 <div class="from-field">  
-                  <label>Fixes $</label>                 
+                 <div class="form-group">  
+                  <label class="col-sm-6 control-label">Fixes $</label>                 
                     <input [(ngModel)]="model.fixed" name="name">                  
                 </div>
                 
-                  <div class="from-field">  
-                  <label>Hourly </label>                  
+                  <div class="form-group">  
+                  <label class="col-sm-6 control-label">Hourly $</label>                  
                     <input [(ngModel)]="model.hourlyRate" name="country" >                  
                 </div>
                 
-                 <div class="from-field">  
-                  <label>Commission</label>
-                  
+                 <div class="form-group">  
+                  <label class="col-sm-6 control-label">Commission $</label>
                     <input  [(ngModel)]="model.commission" type="text"  name="province">
-                  
-                </div> 
+                 </div> 
                              
               </div>           
           </form>

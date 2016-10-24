@@ -34,7 +34,8 @@ const fallBackRoute:Route ={ path:'**',component:LandMain};
 
 export const routeConfig=[
  {path:'landing',component:LandMain}
- ,{path:'login', component:ToLogin}
+ ,{path:'login', component:LoginLogin,outlet:'important'}
+ // ,{path:'login', component:ToLogin,outlet:'important'}
 // ,{path:'sign-in',component:LoginLogin,outlet:'important'}
   ,{path:'join-us',component:JoinUsMain,outlet:'important'}
   ,{path:'join-us',component:JoinUsMain}

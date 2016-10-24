@@ -1,15 +1,17 @@
 <?php
 session_start();
-	$app = 'guest';
-	if(isset($_SESSION['user_id']) && $_SESSION['user_id']) $app = 'app';
+	$id = 'guest';
+    if(isset($_SESSION['user_id']) && $_SESSION['user_id']) $id = 'main';
+//	$app = 'guest';
+//	if(isset($_SESSION['user_id']) && $_SESSION['user_id']) $app = 'app';
  //echo $app;
 
 ?>
 <html>
   <head>
-    <title>Angular 2 QuickStart</title>
+    <title>Angular 2 QuickStart p</title>
     <meta charset="UTF-8">
-    <base href="/Angular2GO/">
+    <base href="/GitHub/GrabOp2/">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="libs/bootstrap.css">
@@ -29,13 +31,17 @@ session_start();
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
 
-    <script src="systemjs.config.js"></script>
+    <script src="systemjs.config<?php echo $id; ?>.js"></script>
     <script>
-      System.import('<?php echo $app; ?>').catch(function(err){ console.error(err); });
+      System.import('app').catch(function(err){ console.error(err); });
     </script>
-  </head>
+<!--    <script src="systemjs.config.js"></script>-->
+<!--    <script>-->
+<!--      System.import('--><?php //echo $app; ?><!--<//').catch(function(err){ console.error(err); });-->
+<!--    </script>-->
+              </head>
 
-  <body>
-    <my-app>Loading...</my-app>
-  </body>
-</html>
+              <body>
+                <my-app>Loading...</my-app>
+              </body>
+            </html>

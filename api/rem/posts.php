@@ -97,13 +97,36 @@ class Posts{
 			$db->updateRow($post,'posts');			
 		}else {
 			$post_id = $db->insertRow($post,'posts');
-			$out->insertId=$post_id;			
+			$out->insertId=$post_id;
 		}
 			
 		$out->post_id = $post_id;		
 		
 		return $out;	
 	}
+
+	function updatePost($user_id,$post){
+        $out= new stdClass();
+
+        $db = $this->db();
+        $post['user_id'] = $user_id;
+
+        $out->result = $db->updateRow($post, 'posts');
+        return $out;
+    }
+
+    function insertPost($user_id,$post){
+        $out= new stdClass();
+        $db = $this->db();
+        $post['user_id']= $user_id;
+
+        $post_id = $db->insertRow($post,'posts');
+        $out->insertId=$post_id;
+
+        $out->post_id = $post_id;
+
+        return $out;
+    }
 	
 	function getUserPosts($user_id){		
 		return $this->db()->selectByValue($user_id,'user_id','posts');

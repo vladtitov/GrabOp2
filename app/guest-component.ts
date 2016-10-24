@@ -12,7 +12,7 @@ import {Router, ActivatedRoute} from "@angular/router";
     <nav>    
       <a [routerLink]="[{outlets:{ important: ['join-us'] } }]" routerLinkActive="menu-active" [routerLinkActiveOptions]="{ exact: true }">Join US</a>
       <!--<a routerLink="/join-us/username" routerLinkActive="menu-active">JOIN US 2</a> -->
-      <a  [routerLink]="[{outlets:{ important: ['sign-in'] } }]" routerLinkActive="menu-active" >Login</a>
+      <a  [routerLink]="[{outlets:{ important: ['login'] } }]" routerLinkActive="menu-active" >Login</a>
     </nav>    
    
     <div id="MyMainOutlet">
