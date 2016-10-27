@@ -10,14 +10,15 @@ import {Router, ActivatedRoute} from "@angular/router";
 <nav-main></nav-main>
 </div>   
     <tooling-main></tooling-main>
-    <div id="MyMainOutlet">
-     <router-outlet></router-outlet> 
-    </div>
-     
-      <div id="MyModalWindow">
+    <div class="container">
+        <div id="MyMainOutlet">
+         <router-outlet></router-outlet> 
+        </div>
+         
+        <div id="MyModalWindow">
           <router-outlet name="important"></router-outlet> 
-      </div>
-      
+        </div>
+    </div>      
 </div>
 `
 })

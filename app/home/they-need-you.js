@@ -15,15 +15,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by Vlad on 9/6/2016.
  */
 var core_1 = require("@angular/core");
+var posts_edit_service_1 = require("../post-edit/posts-edit-service");
 var TheyNeedYou = (function () {
-    function TheyNeedYou() {
+    function TheyNeedYou(postsService) {
+        this.postsService = postsService;
     }
+    TheyNeedYou.prototype.ngOnInit = function () {
+        var _this = this;
+        this.postsService.getPosts().subscribe(function (posts) {
+            _this.need = posts.filter(function (item) { return item.type == 'need'; });
+            console.log(posts);
+        });
+    };
     TheyNeedYou = __decorate([
         core_1.Component({
             selector: 'they-need-you',
-            template: "\n<div >\n            They need You\n            <posts-list></posts-list>\n            \n</div>\n"
+            template: "\n<div>\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <h5>They need You</h5>\n                <posts-list [posts]=\"need\"></posts-list>\n            </div>\n        </div>            \n</div>\n"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [posts_edit_service_1.PostEditService])
     ], TheyNeedYou);
     return TheyNeedYou;
 }());

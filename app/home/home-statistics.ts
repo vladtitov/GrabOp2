@@ -9,28 +9,38 @@ import {Component} from "@angular/core";
   selector:'home-statistics'
   ,template:`
 <div class="statistics">
-<div>
-          <div class="card">
+    <div class="row">
+        <div class="col-md-2">
+          <div class="card text-md-center">
                 <div class="card-header">Profile Views</div>
                 <div class="card-block"></div>          
           </div>
-           <div class="card">
+        </div>
+        <div class="col-md-2">
+           <div class="card text-md-center">
                 <div class="card-header">Connections</div>
                 <div class="card-block"></div>          
-          </div>
-           <div class="card">
+           </div>
+        </div>
+        <div class="col-md-2">
+           <div class="card text-md-center">
                 <div class="card-header">Trusted by</div>
                 <div class="card-block"></div>          
           </div>
-           <div class="card">
+        </div>
+        <div class="col-md-3">
+           <div class="card text-md-center">
                 <div class="card-header">Total Alliance Members</div>
                 <div class="card-block"></div>          
-          </div>  
-          <div class="card">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card text-md-center">
                 <div class="card-header">Total Sales</div>
                 <div class="card-block"></div>          
-          </div>  
-   </div>
+          </div>
+        </div>
+  </div>
 </div>
 `
 })

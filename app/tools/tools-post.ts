@@ -4,7 +4,7 @@ import {document} from "@angular/platform-browser/src/facade/browser";
   selector:'tools-post'
   ,template:`
 <div>
-    <a class="fa fa-plus-circle btn" (click)="onClick()" ></a>     
+    <a class="fa fa-plus-circle btn" (click)="onClick()"> Post</a>     
                 
       <div *ngIf="isVisible" class="drop-holder">
           <div class="drop-container">

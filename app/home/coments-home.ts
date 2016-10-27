@@ -9,7 +9,7 @@ import {Component} from "@angular/core";
   selector:'comments-home'
   ,template:`
 <div >
-            <h3>GrabOp thought of the day</h3>
+            <h5>GrabOp thought of the day</h5>
             <p></p>
             <div>
                 <span></span> Comments <a class="btn btn-primary" tabindex="9">comment</a> <a tabindex="10" class="btn btn-primary">share</a>

@@ -26,7 +26,7 @@ var ToolsPost = (function () {
     ToolsPost = __decorate([
         core_1.Component({
             selector: 'tools-post',
-            template: "\n<div>\n    <a class=\"fa fa-plus-circle btn\" (click)=\"onClick()\" ></a>     \n                \n      <div *ngIf=\"isVisible\" class=\"drop-holder\">\n          <div class=\"drop-container\">\n            <div class=\"drop-items\">\n                <a  [routerLink]=\"['/post-edit/basic',{type:'need'}]\"   routerLinkActive=\"active\">Post need</a>\n                <a  [routerLink]=\"['/post-edit/basic',{type:'offer'}]\"   routerLinkActive=\"active\">Post Offer</a> \n            </div>               \n          </div>\n      </div>  \n              \n             \n</div>\n",
+            template: "\n<div>\n    <a class=\"fa fa-plus-circle btn\" (click)=\"onClick()\"> Post</a>     \n                \n      <div *ngIf=\"isVisible\" class=\"drop-holder\">\n          <div class=\"drop-container\">\n            <div class=\"drop-items\">\n                <a  [routerLink]=\"['/post-edit/basic',{type:'need'}]\"   routerLinkActive=\"active\">Post need</a>\n                <a  [routerLink]=\"['/post-edit/basic',{type:'offer'}]\"   routerLinkActive=\"active\">Post Offer</a> \n            </div>               \n          </div>\n      </div>  \n              \n             \n</div>\n",
             host: {
                 '(document:click)': 'onDocClick($event)',
             }

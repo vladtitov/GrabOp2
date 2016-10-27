@@ -12,41 +12,39 @@ import {UserService} from "../myservices/user-service";
   template:`
 <div class="post-edit-main">
         <div class="container">
-            <div class="panel panel-deffault">
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <a  [routerLink]="['/']" routerLinkActive="active" class="btn fa fa-close float-sm-right"></a>
-                            <h4 class="text-sm-center"><strong>Update your Service and Alliance</strong><span>{{model.type}}</span></h4>
-                        </div>
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-md-8">
+                        <a  [routerLink]="['/']" routerLinkActive="active" class="btn fa fa-close float-sm-right"></a>
+                        <h4 class="text-sm-center"><strong>Update your Service and Alliance</strong><span>{{model.type}}</span></h4>
                     </div>
-                    
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <nav class="nav nav-pills nav-stacked">
-                                <a routerLink="../basic" routerLinkActive="menu-active" class="nav-link">BASICS</a>
-                                <a routerLink="../style" routerLinkActive="menu-active" class="nav-link">BUSINESS STYLE</a>
-                                <a routerLink="../assets" routerLinkActive="menu-active" class="nav-link">PHOTOS / VIDEO</a>
-                                <a routerLink="../alliance" routerLinkActive="menu-active" class="nav-link">ALLIANCE</a>
-                            </nav>
-                        </div>
-                       <div>{{model.title}}</div>
-                       <div class="col-sm-6 bl">
-                          <div *ngIf="myStep=='basic'" class="mytab row">
-                              <post-edit-basic [model]="model" class="col-sm-10 offset-sm-2"></post-edit-basic>
-                          </div>           
-                          <div *ngIf="myStep=='style'" class="mytab row">
-                                <post-edit-style [model]="model" class="col-sm-10 offset-sm-2"></post-edit-style>
-                          </div>
-                          <div *ngIf="myStep=='assets'" class="mytab row">
-                               <post-edit-media [model]="model" class="col-sm-10 offset-sm-1"></post-edit-media>
-                          </div>
-                          <div *ngIf="myStep=='alliance'" class="mytab">
-                               <post-edit-alliance [model]="model"></post-edit-alliance>
-                          </div>
-                          <button class="btn btn-primary btn-lg float-sm-right" (click)="onSaveClick()" >update</button>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-2">
+                        <nav class="nav nav-pills nav-stacked">
+                            <a routerLink="../basic" routerLinkActive="menu-active" class="nav-link">BASICS</a>
+                            <a routerLink="../style" routerLinkActive="menu-active" class="nav-link">BUSINESS STYLE</a>
+                            <a routerLink="../assets" routerLinkActive="menu-active" class="nav-link">PHOTOS / VIDEO</a>
+                            <a routerLink="../alliance" routerLinkActive="menu-active" class="nav-link">ALLIANCE</a>
+                        </nav>
+                    </div>
+                   <div>{{model.title}}</div>
+                   <div class="col-sm-6 bl">
+                      <div *ngIf="myStep=='basic'" class="mytab row">
+                          <post-edit-basic [model]="model" class="col-sm-10 offset-sm-2"></post-edit-basic>
+                      </div>           
+                      <div *ngIf="myStep=='style'" class="mytab row">
+                            <post-edit-style [model]="model" class="col-sm-10 offset-sm-2"></post-edit-style>
                       </div>
-                    </div>
+                      <div *ngIf="myStep=='assets'" class="mytab row">
+                           <post-edit-media [model]="model" class="col-sm-10 offset-sm-1"></post-edit-media>
+                      </div>
+                      <div *ngIf="myStep=='alliance'" class="mytab">
+                           <post-edit-alliance [model]="model"></post-edit-alliance>
+                      </div>
+                      <button class="btn btn-primary btn-lg float-sm-right" (click)="onSaveClick()" >update</button>
+                  </div>
                 </div>
             </div>
         </div>

@@ -20,13 +20,17 @@ import {PostEditService} from "../post-edit/posts-edit-service";
       <profile-skills  [user]="user"></profile-skills>
            
            <button class="btn btn-primary" (click)="onPostEditClick()">Edit post</button>
-      <div>
-       <h5>Need</h5>
-        <posts-list [posts]="need" (selected)="onPostSelect($event)"></posts-list>
+       <div class="row">
+            <div class="col-md-12">
+                <h5>Need</h5>
+                <posts-list [posts]="need" (selected)="onPostSelect($event)"></posts-list>
+            </div>
        </div>
-       <div>
-            <h5>Offer</h5>
-            <posts-list [posts]="offer" (selected)="onPostSelect($event)" ></posts-list>
+       <div class="row">
+            <div class="col-md-12">
+                <h5>Offer</h5>
+                <posts-list [posts]="offer" (selected)="onPostSelect($event)" ></posts-list>
+            </div>
        </div>
 
 </div>
@@ -63,7 +67,7 @@ export class ProfileMain implements OnInit{
   ngOnInit():void{
     this.userService.user$.subscribe(
       user=>this.user = user
-    )
+    );
     this.aroute.params.subscribe(params=>{
       let id:number = +params['id'];
       if(isNaN(id)) return;

@@ -18,7 +18,7 @@ var ToolsSearch = (function () {
     ToolsSearch = __decorate([
         core_1.Component({
             selector: 'tools-search',
-            template: "\n<div>\n<span class=\"fa fa-search\"></span>           \n</div>\n"
+            template: "\n<div>\n    <span class=\"fa fa-search\"></span>           \n</div>\n"
         }), 
         __metadata('design:paramtypes', [])
     ], ToolsSearch);

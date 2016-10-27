@@ -20,7 +20,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n<div> \n<div  id=\"Navigation\">\n<nav-main></nav-main>\n</div>   \n    <tooling-main></tooling-main>\n    <div id=\"MyMainOutlet\">\n     <router-outlet></router-outlet> \n    </div>\n     \n      <div id=\"MyModalWindow\">\n          <router-outlet name=\"important\"></router-outlet> \n      </div>\n      \n</div>\n"
+            template: "\n<div> \n<div  id=\"Navigation\">\n<nav-main></nav-main>\n</div>   \n    <tooling-main></tooling-main>\n    <div class=\"container\">\n        <div id=\"MyMainOutlet\">\n         <router-outlet></router-outlet> \n        </div>\n         \n        <div id=\"MyModalWindow\">\n          <router-outlet name=\"important\"></router-outlet> \n        </div>\n    </div>      \n</div>\n"
         }), 
         __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute])
     ], AppComponent);

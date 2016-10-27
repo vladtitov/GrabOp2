@@ -6,7 +6,7 @@ import {Component} from "@angular/core";
   selector:'tools-search'
   ,template:`
 <div>
-<span class="fa fa-search"></span>           
+    <span class="fa fa-search"></span>           
 </div>
 `
 })

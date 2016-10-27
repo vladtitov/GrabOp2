@@ -9,7 +9,7 @@ session_start();
 ?>
 <html>
   <head>
-    <title>Angular 2 QuickStart p</title>
+    <title>GrabOp</title>
     <meta charset="UTF-8">
     <base href="/GitHub/GrabOp2/">
 
@@ -39,9 +39,9 @@ session_start();
 <!--    <script>-->
 <!--      System.import('--><?php //echo $app; ?><!--<//').catch(function(err){ console.error(err); });-->
 <!--    </script>-->
-              </head>
+  </head>
 
-              <body>
-                <my-app>Loading...</my-app>
-              </body>
-            </html>
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+</html>

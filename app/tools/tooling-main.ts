@@ -8,38 +8,39 @@ import {UserService} from "../myservices/user-service";
   selector:'tooling-main'
   ,template:`
 <div class="container">
-
-  <div class="row hidden-sm-up">
-    <div class="pull-xs-left">GarbOp</div>
-    <tools-help class="pull-xs-right"></tools-help> 
-  </div>
-  <div class="row">
-    <div class="col-xs-2">
-      <a class="fa fa-bars" (click)="onNavClick()"></a>
+    <div class="card-block">
+          <div class="row hidden-sm-up">
+            <div class="pull-xs-left">GarbOp</div>
+            <tools-help class="pull-xs-right"></tools-help> 
+          </div>
+          <div class="row">
+            <div class="col-xs-1">
+              <a class="fa fa-bars" (click)="onNavClick()"></a>
+            </div>
+            <div class="col-xs-1">
+              <tools-search ></tools-search>
+            </div>
+            <div class="hidden-xs-down">
+              <tools-explore></tools-explore>
+            </div>
+            <div class="col-xs-1">
+               <tools-post></tools-post>
+            </div>
+            <div class="col-xs-1">
+              <tools-personal></tools-personal>  
+            </div>
+            <div class="hidden-xs-down">
+                <tools-help></tools-help>
+             </div>
+             <div class="col-xs-1">
+              <tools-menu></tools-menu>
+             </div>
+             <div class="col-xs-1">
+              <tools-notifications></tools-notifications>
+            </div> 
+            <a  class="btn btn-outline-danger" (click)="onLogout()">Logout</a>      
+          </div>
     </div>
-    <div class="col-xs-2">
-      <tools-search ></tools-search>
-    </div>
-      <div class="hidden-xs-down">
-      <tools-explore></tools-explore>
-    </div>
-    <div class="col-xs-2">
-       <tools-post></tools-post>
-    </div>
-    <div class="col-xs-2">
-      <tools-personal></tools-personal>  
-    </div>
-    <div class="hidden-xs-down">
-        <tools-help></tools-help>
-     </div>
-     <div class="col-xs-2">
-      <tools-menu></tools-menu>
-     </div>
-     <div class="col-xs-2">
-      <tools-notifications></tools-notifications>
-    </div> 
-    <a  class="btn" (click)="onLogout()">Logout</a>      
-  </div>     
 </div>         
 `
 

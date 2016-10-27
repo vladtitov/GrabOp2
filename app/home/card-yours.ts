@@ -11,32 +11,32 @@ import {UserService} from "../myservices/user-service";
 <div>
  Card Yours
 <div my-md-image="account.profile_pic"></div>
- <div>{{account.displayName}}</div>
-        <div><span>{{account.city}}</span>, <span>{{account.province}}</span></div> 
+ <div>{{user.displayName}}</div>
+        <div><span>{{user.city}}</span>, <span>{{user.province}}</span></div> 
         <div>
-          <div>Offerings: <span>{{account.offers}}</span></div>
-          <div>Needs: <span>{{account.needs}}</span></div>        
+          <div>Offerings: <span>{{user.offers}}</span></div>
+          <div>Needs: <span>{{user.needs}}</span></div>        
         </div>        
 </div>
 `
 })
 export class CardYours implements OnInit{
-  account:VOUserExt  = new VOUserExt({});
-  myImage = this.account.profile_pic
+    user:VOUserExt  = new VOUserExt({});
+    myImage = this.user.profile_pic;
 
-constructor(private loginService:UserService){
-
-}
-ngOnInit():void {
-
-  this.loginService.myAccount$.subscribe(
-    acc =>{
-      console.log(acc)
-      this.account = acc
+    constructor(private userService:UserService){
 
     }
 
-  )
-}
+    ngOnInit():void {
+
+      // this.loginService.myAccount$.subscribe(
+      this.userService.user$.subscribe(
+        user =>{
+          console.log(user);
+          this.user = user;
+        }
+      )
+    }
 
 }

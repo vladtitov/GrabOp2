@@ -21,7 +21,7 @@ var CommentsHome = (function () {
     CommentsHome = __decorate([
         core_1.Component({
             selector: 'comments-home',
-            template: "\n<div >\n            <h3>GrabOp thought of the day</h3>\n            <p></p>\n            <div>\n                <span></span> Comments <a class=\"btn btn-primary\" tabindex=\"9\">comment</a> <a tabindex=\"10\" class=\"btn btn-primary\">share</a>\n            \n            </div>\n</div>\n"
+            template: "\n<div >\n            <h5>GrabOp thought of the day</h5>\n            <p></p>\n            <div>\n                <span></span> Comments <a class=\"btn btn-primary\" tabindex=\"9\">comment</a> <a tabindex=\"10\" class=\"btn btn-primary\">share</a>\n            \n            </div>\n</div>\n"
         }), 
         __metadata('design:paramtypes', [])
     ], CommentsHome);
