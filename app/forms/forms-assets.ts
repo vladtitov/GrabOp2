@@ -9,28 +9,32 @@ import {UploadService} from "../myservices/upload-service";
   selector:'edit-assets'
   ,template:`
 <div>
-          <h2>Edit Assets</h2> 
-          <div>
-            <div >
-              <img class="s40x40" src="{{model?model.profile_pic:''}}" />
-            
+          <!--<h2>Edit Assets</h2> -->
+          <div class="form-group row">
+            <div class="col-sm-2 offset-sm-2">
+              <img class="s100x100" src="{{model?model.profile_pic:''}}" />
             </div>
-            <label>add photo</label>
-            <input type="file" nane="file" (change)="onAddPhotoChange($event)" />
-          </div>
-           <div>
-            <div>
-              <img src="{{model?model.video:''}}" />
-            
+            <div class="col-sm-8 text-sm-left">
+                <label>add photo</label>
+                <input type="file" nane="file" (change)="onAddPhotoChange($event)" />
             </div>
-            <button>add video</button>
           </div>
-           <div>
-            <div>
-              <img  class="s40x40" src="{{model?model.background_pic:''}}" />
-            
-            </div>          
-            <input type="file" nane="file" (change)="onAddBackgroundChange($event)" />
+           <div class="form-group row">
+            <div class="col-sm-2 offset-sm-2">
+              <img class="s100x100" src="{{model?model.video:''}}" />
+            </div>
+            <div class="col-sm-8 text-sm-left">
+                <button>add video</button>
+            </div>
+          </div>
+           <div class="form-group row">
+            <div class="col-sm-2 offset-sm-2">
+              <img  class="s100x100" src="{{model?model.background_pic:''}}" />
+            </div>
+            <div class="col-sm-8 text-sm-left ">
+                 <label>background image</label>
+                 <input type="file" nane="file" (change)="onAddBackgroundChange($event)" />
+            </div>
           </div>
  <div class="debug">{{ model | json }}  </div>  
 </div>

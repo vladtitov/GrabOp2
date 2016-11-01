@@ -11,8 +11,7 @@ import {JoinUsService} from "../join-us/login-service";
 @Component({
   template:`
 <div>
-    <div class="card">
-    <a class="btn fa fa-close pull-right"></a>
+    <div class="card">    
     <div class="card-block ">    
     
     <h2>Profile   Username</h2>
@@ -130,7 +129,7 @@ export class ProfileEditUsername  implements OnInit{
     this.account.username= this.myForm.value['username'];
     this.account.firstName = this.myForm.value['firstName'];
     this.account.lastName= this.myForm.value['lastName'];
-    this.account.PrimaryEmail = this.myForm.value['email'];
+    this.account.email = this.myForm.value['email'];
 
     if(this.evalueateForm()) this.router.navigate(['../company'],{ relativeTo: this.route});
 

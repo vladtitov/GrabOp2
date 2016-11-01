@@ -14,7 +14,7 @@ import {Directive, Input, OnChanges, ElementRef, OnInit, Renderer} from "@angula
 
 export class MyMdImage implements OnInit{
 
-  @Input("my-md-image") url:string
+  @Input("my-md-image") url:string;
   @Input() shape:string = 'round';
   @Input() size:string = '40x40';
 

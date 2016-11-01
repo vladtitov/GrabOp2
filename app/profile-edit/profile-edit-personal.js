@@ -22,10 +22,23 @@ var ProfileEditPersonal = (function () {
         var _this = this;
         this.userService.user$.subscribe(function (user) { return _this.user = user; });
     };
+    ProfileEditPersonal.prototype.onSubmitClick = function () {
+        var _this = this;
+        this.userService.saveUser().then(function (res) {
+            if (res.success) {
+                _this.myMsg = 'data Saved';
+            }
+            else {
+                _this.myMsg = res.message;
+            }
+            setTimeout(function () { _this.myMsg = ''; }, 10000);
+            _this.userService.getUser();
+        });
+    };
     ProfileEditPersonal = __decorate([
         core_1.Component({
             selector: 'join-us-personal',
-            template: "\n<div>\n      <h2>Profile Personal</h2>\n      <forms-personal [person]=\"user\"></forms-personal>\n        <a routerLink=\"../company\" routerLinkActive=\"active\">Company back</a>\n        <a routerLink=\"../assets\" routerLinkActive=\"active\">Assets</a>        \n</div>\n\n"
+            template: "\n<div>\n      <!--<h2>Profile Personal</h2>-->\n      <forms-personal [person]=\"user\"></forms-personal>\n        <!--<a routerLink=\"../company\" routerLinkActive=\"active\">Company back</a>-->\n        <!--<a routerLink=\"../assets\" routerLinkActive=\"active\">Assets</a>        -->\n</div>\n\n"
         }), 
         __metadata('design:paramtypes', [user_service_1.UserService])
     ], ProfileEditPersonal);

@@ -15,22 +15,43 @@ var core_1 = require("@angular/core");
 //import {UserService} from "../myservices/person-service";
 var vos_1 = require("../models/vos");
 var forms_1 = require("@angular/forms");
+var upload_service_1 = require("../myservices/upload-service");
 var FormsCompany = (function () {
-    function FormsCompany(fb) {
+    function FormsCompany(fb, uploadService) {
         this.fb = fb;
+        this.uploadService = uploadService;
     }
     FormsCompany.prototype.ngOnInit = function () {
     };
+    FormsCompany.prototype.onAddResumeChange = function (evt) {
+        var _this = this;
+        var files = evt.target.files;
+        if (files.length) {
+            var form = new FormData();
+            var file = files[0];
+            form.append('file', file);
+            if (files[0].size < 2000000) {
+                this.uploadService.upload(form, 'user-phote', this.person.id).done(function (res) {
+                    console.log(res);
+                    if (res.success == 'success') {
+                        _this.person.profile_pic = res.result;
+                    }
+                });
+            }
+            else
+                alert('File should be less then 2 Megabite');
+        }
+    };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', vos_1.VOUser)
+        __metadata('design:type', vos_1.VOUserExt)
     ], FormsCompany.prototype, "person", void 0);
     FormsCompany = __decorate([
         core_1.Component({
             selector: 'forms-company',
-            template: "\n<form #f=\"ngForm\"  autocomplete=\"off\" novalidate>\n          <fieldset>          \n              <div class=\"from-field\">              \n               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<label>Job Title</label>\n                <input  [(ngModel)]=\"person.jobtitle\" name=\"jobtitle\" />\n              </div>\n              \n               <div class=\"from-field\">                \n               <input  [(ngModel)]=\"person.occupation\" type=\"radio\" name=\"occupation\" value=\"company\" checked>\n                <label>Company</label>\n                <input [(ngModel)]=\"person.company\" name=\"company\" />             \n                  \n                  <br> <input [(ngModel)]=\"person.occupation\" type=\"radio\" name=\"occupation\" value=\"selfemployed\"> Self Employed\n                  <br><input  [(ngModel)]=\"person.occupation\" type=\"radio\" name=\"occupation\" value=\"seeling\"> Seeking an Opportunity\n                 <br><input  [(ngModel)]=\"person.occupation\" type=\"radio\" name=\"occupation\" value=\"other\"> Other\n                \n              </div>             \n          </fieldset>           \n</form> \n    <div class=\"debug\">{{ person | json }}</div>\n"
+            template: "\n<form #f=\"ngForm\"  autocomplete=\"off\" novalidate>\n          <fieldset>          \n              <div class=\"form-group row\">\n                <div class=\"col-sm-1 offset-sm-4 text-sm-right\">\n                    <label>Job Title</label>\n                </div>\n                <div class=\"col-sm-7 text-sm-left\">\n                    <input  [(ngModel)]=\"person.jobtitle\" name=\"jobtitle\" />\n                </div>\n              </div>\n              \n            <div class=\"form-group row\">\n                <!--<div class=\"col-sm-9 offset-sm-3 \">-->\n                    <!--<div class=\"form-check\">-->\n                        <!--<label class=\"form-check-label\">-->\n                            <!--<input class=\"form-check-input\" [(ngModel)]=\"person.occupation\" type=\"radio\" name=\"occupation\" value=\"company\" checked>-->\n                            <!--Company <input [(ngModel)]=\"person.company\" name=\"company\" />-->\n                        <!--</label>    -->\n                    <!--</div>-->\n                <!--</div>-->\n                <div class=\"col-sm-1 offset-sm-4 text-sm-right\">\n                    <label>Company</label>\n                </div>\n                <div class=\"col-sm-4 text-sm-left\">\n                    <div class=\"input-group\">\n                      <span class=\"input-group-addon\">\n                        <input  [(ngModel)]=\"person.occupation\" type=\"radio\" name=\"occupation\" value=\"company\" checked>\n                        <!--<input type=\"radio\" aria-label=\"Radio button for following text input\">-->\n                      </span>\n                      <input [(ngModel)]=\"person.company\" type=\"text\" class=\"form-control\" name=\"company\" />\n                      <!--<input type=\"text\" class=\"form-control\" aria-label=\"Text input with radio button\">-->\n                    </div>\n                </div>\n                <!--<div class=\"col-sm-1 text-sm-left\">Company</div>-->\n                <!--<div class=\"col-sm-7 text-sm-left\">-->\n                    <!--<input [(ngModel)]=\"person.company\" name=\"company\" />             -->\n                <!--</div>-->\n            </div>\n            <div class=\"form-group row text-sm-left\">\n              <div class=\"col-sm-8 offset-sm-4\">\n                <div class=\"form-check\">\n                  <label class=\"form-check-label\">\n                    <input [(ngModel)]=\"person.occupation\" type=\"radio\" name=\"occupation\" value=\"selfemployed\">\n                    Self Employed\n                  </label>\n                </div>\n                <div class=\"form-check\">\n                  <label class=\"form-check-label\">\n                    <input  [(ngModel)]=\"person.occupation\" type=\"radio\" name=\"occupation\" value=\"seeling\">\n                    Seeking an Opportunity\n                  </label>\n                </div>\n                <div class=\"form-check\">\n                  <label class=\"form-check-label\">\n                   <input  [(ngModel)]=\"person.occupation\" type=\"radio\" name=\"occupation\" value=\"other\">\n                   Other\n                  </label>\n                </div>\n                  <!--<br> <input [(ngModel)]=\"person.occupation\" type=\"radio\" name=\"occupation\" value=\"selfemployed\"> Self Employed-->\n                  <!--<br><input  [(ngModel)]=\"person.occupation\" type=\"radio\" name=\"occupation\" value=\"seeling\"> Seeking an Opportunity-->\n                 <!--<br><input  [(ngModel)]=\"person.occupation\" type=\"radio\" name=\"occupation\" value=\"other\"> Other-->\n              </div>    \n            </div>          \n          </fieldset>\n          <div class=\"form-group row\">\n            <div class=\"col-sm-2 offset-sm-2\">\n              <img class=\"s100x100\" src=\"{{person?person.resume:''}}\" />\n            </div>\n            <div class=\"col-sm-8 text-sm-left\">\n                <label>add photo</label>\n                <input type=\"file\" nane=\"file\" (change)=\"onAddResumeChange($event)\" />\n            </div>\n          </div>\n</form> \n    <div class=\"debug\">{{ person | json }}</div>\n"
         }), 
-        __metadata('design:paramtypes', [forms_1.FormBuilder])
+        __metadata('design:paramtypes', [forms_1.FormBuilder, upload_service_1.UploadService])
     ], FormsCompany);
     return FormsCompany;
 }());

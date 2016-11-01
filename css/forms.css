@@ -25,7 +25,7 @@ form input[type='radio'] {
   box-shadow: none;
   width: 20px;
   vertical-align: bottom;
-  margin-left: 10px;
+  /*margin-left: 10px;*/
 }
 
 form button[type='submit'] {

@@ -24,7 +24,7 @@ var ProfileEditCompany = (function () {
     };
     ProfileEditCompany = __decorate([
         core_1.Component({
-            template: "\n<div>\n      <h2>Profile</h2>\n      <forms-company [person]=\"user\"></forms-company>        \n        <a routerLink=\"../personal\" routerLinkActive=\"active\">Personal</a>\n        \n</div>\n"
+            template: "\n<div>\n      <!--<h2>Profile</h2>-->\n      <div *ngIf=\"myMsg\">{{myMsg}}</div>\n      <forms-company [person]=\"user\"></forms-company>        \n        <!--<a routerLink=\"../personal\" routerLinkActive=\"active\">Personal</a>-->\n        \n</div>\n"
         }), 
         __metadata('design:paramtypes', [user_service_1.UserService])
     ], ProfileEditCompany);

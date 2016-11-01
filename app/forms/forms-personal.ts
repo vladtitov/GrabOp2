@@ -11,39 +11,91 @@ import {Subscription} from "rxjs";
   ,template:`
 <form  #f="ngForm" autocomplete="off" novalidate>
           <fieldset>          
-              <div class="from-field">                
-                <label>First Name</label>
-                <input  [(ngModel)]="person.firstName" name="firstName" />
+              <div class="form-group row">
+                <div class="col-sm-2 offset-sm-2 text-sm-right">
+                    <label>First Name</label>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                    <input  [(ngModel)]="person.firstName" name="firstName" />
+                </div>
               </div>
-               <div class="from-field">                
-                <label>Last Name</label>
-                <input [(ngModel)]="person.lastName" name="lastName" />
+               <div class="form-group row">
+                <div class="col-sm-2 offset-sm-2 text-sm-right">
+                    <label>Last Name</label>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                    <input [(ngModel)]="person.lastName" name="lastName" />
+                </div>
               </div>
-               <div class="from-field">                
-                <label>Phone Number</label>
-                <input [(ngModel)]="person.PhoneNumber" name="PhoneNumber" />
+               <div class="form-group row">
+                <div class="col-sm-2 offset-sm-2 text-sm-right">
+                    <label>Phone Number</label>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                    <input [(ngModel)]="person.PhoneNumber" name="PhoneNumber" />
+                </div>
               </div>
-               <div class="from-field">                
-                <label>Email Address</label>
-                <input [(ngModel)]="person.PrimaryEmail" name="PrimaryEmail" />
+              <div class="form-group row">
+                <div class="col-sm-2 offset-sm-4 text-sm-left">
+                <div class="form-check has-success">
+                  <label class="form-check-label">
+                    <input [(ngModel)]="person.phoneVisible" name="phoneVisible" type="checkbox" class="form-check-input" id="checkboxSuccess" value="true">
+                    Make Visible
+                  </label>
+                </div>
+                </div>
               </div>
-               <div class="from-field">                
-                <label>Country</label>
-                <input [(ngModel)]="person.country" name="country" />
+               <div class="form-group row">
+                <div class="col-sm-2 offset-sm-2 text-sm-right">
+                    <label>Email Address</label>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                    <input [(ngModel)]="person.PrimaryEmail" name="PrimaryEmail" />
+                </div>
               </div>
-               <div class="from-field">                
-                <label>Province</label>
-                <input [(ngModel)]="person.province" name="province" />
+              <div class="form-group row">
+                <div class="col-sm-2 offset-sm-4 text-sm-left">
+                <div class="form-check has-success">
+                  <label class="form-check-label">
+                    <input [(ngModel)]="person.emailVisible" name="emailVisible" type="checkbox" class="form-check-input" id="checkboxSuccess" value="true">
+                    Make Visible
+                  </label>
+                </div>
+                </div>
               </div>
-               <div class="from-field">                
-                <label>City</label>
-                <input [(ngModel)]="person.city" name ="city" placeholder="city" />
+               <div class="form-group row">
+                <div class="col-sm-2 offset-sm-2 text-sm-right">
+                    <label>Country</label>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                    <input [(ngModel)]="person.country" name="country" />
+                </div>
               </div>
-               <div class="from-field">                
-                <label>Statement</label>
-                <textarea [(ngModel)]="person.description" name="description" ></textarea>
+               <div class="form-group row">
+                <div class="col-sm-2 offset-sm-2 text-sm-right">
+                    <label>Province</label>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                    <input [(ngModel)]="person.province" name="province" />
+                </div>
+              </div>
+               <div class="form-group row">
+                <div class="col-sm-2 offset-sm-2 text-sm-right">
+                    <label>City</label>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                    <input [(ngModel)]="person.city" name ="city" placeholder="city" />
+                </div>
+              </div>
+               <div class="form-group row">
+                <div class="col-sm-2 offset-sm-2">
+                    <label>Personal Statement</label>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                    <textarea [(ngModel)]="person.description" name="description" ></textarea>
+                </div>
               </div>              
-          </fieldset>          
+          </fieldset>
 </form> 
      <div class="debug">{{ person | json }}  </div>  
 

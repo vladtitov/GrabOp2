@@ -14,12 +14,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var user_service_1 = require("../myservices/user-service");
 var ToolsPersonal = (function () {
-    function ToolsPersonal(loginService) {
-        this.loginService = loginService;
-        this.myImage = 'url(img/img-girl.jpg)';
+    function ToolsPersonal(userService) {
+        this.userService = userService;
+        // myImage:string = 'url(img/img-girl.jpg)';
+        this.myImage = '';
     }
     ToolsPersonal.prototype.ngOnInit = function () {
+        var _this = this;
         //  this.profileService.myAccount$.subscribe(profile=>this.myImage = profile.profile_pic);
+        this.userService.user$.subscribe(function (user) {
+            _this.user = user;
+            _this.myImage = 'url(' + _this.user.profile_pic + ')';
+        });
     };
     ToolsPersonal = __decorate([
         core_1.Component({

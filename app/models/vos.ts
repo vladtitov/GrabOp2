@@ -171,41 +171,6 @@ export class VOService extends VOPost{
 }
 
 
-
-export class VOUser{
-  static ADMIN:string = 'admin';
-  static MEMBER:string = 'member';
-  id:number;
-  role:string;
-  PhoneNumber: string;
-  PrimaryEmail: string;
-  displayName: string;
-
-  SessionId:string;
-  token:string;
-  isLogin:boolean;
-
-  profile_pic: string;
-  jobtitle: string;
-  company: string;
-  firstName: string;
-  lastName: string;
-  occupation: string;
-  url: string;
-  description: string;
-  offers: number;
-  needs: number;
-  numberOfOpps: number;
-
-  distance: number;
-
-  constructor(obj: any) {
-    for (let str in obj)this[str] = obj[str];
-    //this.profile_pic= VOSettings.images_small+this.profile_pic;
-  }
-
-}
-
 export class VOAccount {
   id: number;
   type: string;
@@ -218,17 +183,53 @@ export class VOAccount {
   constructor(obj:any){ for(let str in obj)this[str] = obj[str];}
 }
 
+export class VOUser{
+    static ADMIN:string = 'admin';
+    static MEMBER:string = 'member';
+    id:number;
+    role:string;
+    PhoneNumber: string;
+    phoneVisible: boolean;
+    PrimaryEmail: string;
+    emailVisible: boolean;
+    displayName: string;
+
+    SessionId:string;
+    token:string;
+    isLogin:boolean;
+
+    profile_pic: string;
+    jobtitle: string;
+    company: string;
+    firstName: string;
+    lastName: string;
+    occupation: string;
+    url: string;
+    description: string;
+    offers: number;
+    needs: number;
+    numberOfOpps: number;
+
+    distance: number;
+
+    constructor(obj: any) {
+        for (let str in obj)this[str] = obj[str];
+        //this.profile_pic= VOSettings.images_small+this.profile_pic;
+    }
+
+}
+
 export class VOUserExt extends VOUser{
-  background_pic:string
-  video:string
-  resume:string
-  province:string
-  city:string
-  country:string
-  latitude:number
-  longitude:number
-  skillset:string[]
-  interests:string[]
+  background_pic:string;
+  video:string;
+  resume:string;
+  province:string;
+  city:string;
+  country:string;
+  latitude:number;
+  longitude:number;
+  skillset:string[];
+  interests:string[];
   constructor(obj:any){ super(obj);}
 }
 

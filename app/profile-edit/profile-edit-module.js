@@ -26,7 +26,7 @@ var login_service_1 = require("../join-us/login-service");
 var myRoutes = [
     { path: '', component: profile_edit_main_1.ProfileEditMain,
         children: [
-            { path: '', component: profile_edit_main_1.ProfileEditMain, redirectTo: 'username' },
+            { path: '', component: profile_edit_main_1.ProfileEditMain, redirectTo: 'personal' },
             { path: 'username', component: ProfileEditUsername_1.ProfileEditUsername },
             { path: 'company', component: profile_edit_company_1.ProfileEditCompany },
             { path: 'personal', component: profile_edit_personal_1.ProfileEditPersonal },

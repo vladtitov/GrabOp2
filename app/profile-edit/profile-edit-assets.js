@@ -38,7 +38,7 @@ var ProfileEditAssets = (function () {
     };
     ProfileEditAssets = __decorate([
         core_1.Component({
-            template: "\n<div>\n<div *ngIf=\"myMsg\">{{myMsg}}</div>\n<edit-assets [model]=\"user\" ></edit-assets>\n  <a routerLink=\"../personal\" routerLinkActive=\"active\">Personal</a>\n        <button class=\"btn btn-primary\"   (click)=\"onSubmitClick()\">Submit</button>\n</div>\n"
+            template: "\n<div>\n<div *ngIf=\"myMsg\">{{myMsg}}</div>\n<edit-assets [model]=\"user\" ></edit-assets>\n  <!--<a routerLink=\"../personal\" routerLinkActive=\"active\">Personal</a>-->\n        <!--<button class=\"btn btn-primary\"   (click)=\"onSubmitClick()\">update</button>-->\n</div>\n"
         }), 
         __metadata('design:paramtypes', [user_service_1.UserService])
     ], ProfileEditAssets);

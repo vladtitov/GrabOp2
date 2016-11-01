@@ -18,7 +18,7 @@ import {JoinUsService} from "../join-us/login-service";
 const myRoutes = [
   { path: '' ,component: ProfileEditMain
     , children: [
-    {path: '', component: ProfileEditMain,redirectTo:'username'}
+    {path: '', component: ProfileEditMain,redirectTo:'personal'}
     ,{path: 'username', component: ProfileEditUsername}
     ,{path: 'company', component: ProfileEditCompany}
     ,{path: 'personal', component: ProfileEditPersonal}

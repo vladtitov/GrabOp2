@@ -8,15 +8,19 @@ import {UserService} from "../myservices/user-service";
 @Component({
 template:`
 <div>
-      <h2>Profile</h2>
+      <!--<h2>Profile</h2>-->
+      <div *ngIf="myMsg">{{myMsg}}</div>
       <forms-company [person]="user"></forms-company>        
-        <a routerLink="../personal" routerLinkActive="active">Personal</a>
+        <!--<a routerLink="../personal" routerLinkActive="active">Personal</a>-->
         
 </div>
 `
 })
 export class ProfileEditCompany implements OnInit{
-  user:VOUserExt
+    user:VOUserExt;
+    myMsg:string;
+
+
   constructor(private userService:UserService){
     //this.person = joinusService.person;
   }

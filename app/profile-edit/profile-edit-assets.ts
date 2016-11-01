@@ -10,14 +10,14 @@ import {UserService} from "../myservices/user-service";
 <div>
 <div *ngIf="myMsg">{{myMsg}}</div>
 <edit-assets [model]="user" ></edit-assets>
-  <a routerLink="../personal" routerLinkActive="active">Personal</a>
-        <button class="btn btn-primary"   (click)="onSubmitClick()">Submit</button>
+  <!--<a routerLink="../personal" routerLinkActive="active">Personal</a>-->
+        <!--<button class="btn btn-primary"   (click)="onSubmitClick()">update</button>-->
 </div>
 `
 
 })
 export  class ProfileEditAssets implements OnInit{
-  private user:VOUserExt
+  private user:VOUserExt;
   myMsg:string;
   constructor(private userService:UserService){
    // this.person = joinusService.person;

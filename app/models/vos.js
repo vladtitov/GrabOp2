@@ -99,6 +99,14 @@ var VOService = (function (_super) {
     return VOService;
 }(VOPost));
 exports.VOService = VOService;
+var VOAccount = (function () {
+    function VOAccount(obj) {
+        for (var str in obj)
+            this[str] = obj[str];
+    }
+    return VOAccount;
+}());
+exports.VOAccount = VOAccount;
 var VOUser = (function () {
     function VOUser(obj) {
         for (var str in obj)
@@ -110,14 +118,6 @@ var VOUser = (function () {
     return VOUser;
 }());
 exports.VOUser = VOUser;
-var VOAccount = (function () {
-    function VOAccount(obj) {
-        for (var str in obj)
-            this[str] = obj[str];
-    }
-    return VOAccount;
-}());
-exports.VOAccount = VOAccount;
 var VOUserExt = (function (_super) {
     __extends(VOUserExt, _super);
     function VOUserExt(obj) {

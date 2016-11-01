@@ -3,7 +3,7 @@
  */
 import {Component, OnInit} from "@angular/core";
 
-import {VOAccount} from "../models/vos";
+import {VOAccount, VOUserExt} from "../models/vos";
 import {UserService} from "../myservices/user-service";
 
 
@@ -17,15 +17,24 @@ import {UserService} from "../myservices/user-service";
 `
 })
 export class ToolsPersonal implements OnInit{
-myImage:string = 'url(img/img-girl.jpg)';
+// myImage:string = 'url(img/img-girl.jpg)';
+myImage:string = '';
   private myStyle:any;
 
-  constructor(private loginService:UserService){
+    private user:VOUserExt;
 
-  }
+    constructor(private userService:UserService){
 
-  ngOnInit():void{
-  //  this.profileService.myAccount$.subscribe(profile=>this.myImage = profile.profile_pic);
-  }
+    }
+
+    ngOnInit():void{
+        //  this.profileService.myAccount$.subscribe(profile=>this.myImage = profile.profile_pic);
+        this.userService.user$.subscribe(
+            user=> {
+                this.user = user;
+                this.myImage = 'url('+this.user.profile_pic+')';
+            }
+        );
+    }
 
 }
