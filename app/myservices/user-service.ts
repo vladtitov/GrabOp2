@@ -138,7 +138,7 @@ export class UserService {
   }
 
   private handleError (error: any) {
-    console.log(error)
+    console.log(error);
     //this.id++;
     // if(this.id<1000) this.loadProfile();
     let errMsg = (error.message) ? error.message :

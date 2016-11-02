@@ -12,10 +12,14 @@ class Login{
 		$user_id = $_SESSION['user_id'];
 		$db = $this->db();
 		if($method=='GET') {
-			return $db->selectById($user_id ,'users');
-			
+            $out = $db->selectById($user_id ,'users');
+            $out['skillset'] = explode(",", $out['skillset']);
+			return $out;
+//			return $db->selectById($user_id ,'users');
+
 		}else if($method=='POST'){
 			$post['id'] = $user_id;
+            $post['skillset'] = implode(",", $post['skillset']);
 			$out = new stdClass();							
 			$out->result= $db->updateRow($post,'users');	
 			if($out->result)$out->success='success';			

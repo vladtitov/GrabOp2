@@ -31,7 +31,7 @@ var CardYours = (function () {
     CardYours = __decorate([
         core_1.Component({
             selector: 'card-yours',
-            template: "\n<div>\n Card Yours\n<div my-md-image=\"account.profile_pic\"></div>\n <div>{{user.displayName}}</div>\n        <div><span>{{user.city}}</span>, <span>{{user.province}}</span></div> \n        <div>\n          <div>Offerings: <span>{{user.offers}}</span></div>\n          <div>Needs: <span>{{user.needs}}</span></div>        \n        </div>        \n</div>\n"
+            template: "\n<div>\n Card Yours\n<div my-md-image=\"user.profile_pic\"></div>\n <div>{{user.displayName}}</div>\n        <div><span>{{user.city}}</span>, <span>{{user.province}}</span></div> \n        <div>\n          <div>Offerings: <span>{{user.offers}}</span></div>\n          <div>Needs: <span>{{user.needs}}</span></div>        \n        </div>        \n</div>\n"
         }), 
         __metadata('design:paramtypes', [user_service_1.UserService])
     ], CardYours);

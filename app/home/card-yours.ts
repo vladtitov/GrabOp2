@@ -10,7 +10,7 @@ import {UserService} from "../myservices/user-service";
   ,template:`
 <div>
  Card Yours
-<div my-md-image="account.profile_pic"></div>
+<div my-md-image="user.profile_pic"></div>
  <div>{{user.displayName}}</div>
         <div><span>{{user.city}}</span>, <span>{{user.province}}</span></div> 
         <div>
