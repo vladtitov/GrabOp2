@@ -137,6 +137,14 @@ export class UserService {
 
   }
 
+    getStatistics():Observable<any>{
+        // var url:string = VOSettings.server+'/profiles/'+VOSettings.user.id+'?format=json&expanded=true';
+        var url:string = VOSettings.statistics;
+      return this.http.get(url).map((res:any)=>{
+          return new VOResult(res.json());
+      });
+    }
+
   private handleError (error: any) {
     console.log(error);
     //this.id++;

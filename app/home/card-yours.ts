@@ -9,20 +9,28 @@ import {UserService} from "../myservices/user-service";
   selector:'card-yours'
   ,template:`
 <div>
- Card Yours
-<div my-md-image="user.profile_pic"></div>
- <div>{{user.displayName}}</div>
-        <div><span>{{user.city}}</span>, <span>{{user.province}}</span></div> 
+ <!--Card Yours-->
+<div class="row">
+    <div class="col-sm-5">
+        <div [my-md-image]="myImage" [size]="'130x130'"></div>
+    </div>
+    <div class="col-sm-7">
+        <div><h5>{{user.displayName}}</h5></div>
+        <div><span>{{user.city}}</span>, <span>{{user.province}}</span></div>
+         <br>
         <div>
-          <div>Offerings: <span>{{user.offers}}</span></div>
-          <div>Needs: <span>{{user.needs}}</span></div>        
+          <div><strong>Offerings: <span class="text-warning">{{user.offers}}</span></strong></div>
+          <div><strong>Needs: <span class="text-warning">{{user.needs}}</span></strong></div>        
         </div>        
+    </div>
+</div>
+
 </div>
 `
 })
 export class CardYours implements OnInit{
     user:VOUserExt  = new VOUserExt({});
-    myImage = this.user.profile_pic;
+    myImage:string = '';
 
     constructor(private userService:UserService){
 
@@ -35,6 +43,8 @@ export class CardYours implements OnInit{
         user =>{
           console.log(user);
           this.user = user;
+          this.user.displayName = user.firstName + ' ' + user.lastName;
+          this.myImage = 'url('+this.user.profile_pic+')';
         }
       )
     }

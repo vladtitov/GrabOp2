@@ -5,8 +5,9 @@
  * Created by Vlad on 9/6/2016.
  */
 import {Component, OnInit} from "@angular/core";
-import {VOPost} from "../models/vos";
+import {VOPost, VOUserExt} from "../models/vos";
 import {PostEditService} from "../post-edit/posts-edit-service";
+import {UserService} from "../myservices/user-service";
 @Component({
   selector:'you-need-them'
   ,template:`
@@ -21,15 +22,20 @@ import {PostEditService} from "../post-edit/posts-edit-service";
 `
 })
 export class YouNeedThem implements OnInit{
+    user:VOUserExt  = new VOUserExt({});
     offer:VOPost[];
 
-    constructor(private postsService:PostEditService){  }
+    constructor(private postsService:PostEditService, private userService:UserService){  }
 
     ngOnInit(){
+        this.userService.user$.subscribe(
+            user =>{
+                this.user = user;
+            });
         this.postsService.getPosts().subscribe(
             (posts:VOPost[])=>{
                 this.offer = posts.filter(item=>{ return item.type=='offer'});
-                console.log(posts);
+                this.user.offers = this.offer.length;
             });
     }
 }

@@ -32,7 +32,7 @@ var MyMdImage = (function () {
         __metadata('design:type', String)
     ], MyMdImage.prototype, "shape", void 0);
     __decorate([
-        core_1.Input(), 
+        core_1.Input("size"), 
         __metadata('design:type', String)
     ], MyMdImage.prototype, "size", void 0);
     MyMdImage = __decorate([

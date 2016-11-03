@@ -245,6 +245,7 @@ export class VOSettings{
   static images:string = 'http://res.cloudinary.com/al3kosvh/image/upload/';
   static SMALL:string ='t_thumbnail';
   static images_small:string = 'http://res.cloudinary.com/al3kosvh/image/upload/';
+    static  statistics:string = 'api/get_statistics.php';
 
   static get user():VOUser{
     if(!VOSettings._user)VOSettings._user = new VOUser({id:154});

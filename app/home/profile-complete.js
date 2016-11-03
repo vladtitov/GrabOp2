@@ -21,7 +21,7 @@ var ProfileComplete = (function () {
     ProfileComplete = __decorate([
         core_1.Component({
             selector: 'profile-complete',
-            template: "\n<div >\n            <h5>Your Profile Complete</h5>\n            <div><span class=\"fa fa-star-half-full\"></span></div>\n            <div>\n              <a >Enhance your Profile</a>\n            </div>\n            \n</div>\n"
+            template: "\n<div >\n            <h5>Your Profile Complete</h5>\n            <div><span class=\"fa fa-star-half-full\"></span></div>\n            <div>\n              <a class=\"text-info\">Enhance your Profile</a>\n            </div>\n            \n</div>\n"
         }), 
         __metadata('design:paramtypes', [])
     ], ProfileComplete);

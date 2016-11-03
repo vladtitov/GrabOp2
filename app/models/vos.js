@@ -150,6 +150,7 @@ var VOSettings = (function () {
     VOSettings.images = 'http://res.cloudinary.com/al3kosvh/image/upload/';
     VOSettings.SMALL = 't_thumbnail';
     VOSettings.images_small = 'http://res.cloudinary.com/al3kosvh/image/upload/';
+    VOSettings.statistics = 'api/get_statistics.php';
     return VOSettings;
 }());
 exports.VOSettings = VOSettings;

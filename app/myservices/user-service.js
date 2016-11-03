@@ -118,6 +118,13 @@ var UserService = (function () {
         return this.http.post(url, this._user).toPromise()
             .then(function (res) { return new vos_1.VOResult(res.json()); });
     };
+    UserService.prototype.getStatistics = function () {
+        // var url:string = VOSettings.server+'/profiles/'+VOSettings.user.id+'?format=json&expanded=true';
+        var url = vos_1.VOSettings.statistics;
+        return this.http.get(url).map(function (res) {
+            return new vos_1.VOResult(res.json());
+        });
+    };
     UserService.prototype.handleError = function (error) {
         console.log(error);
         //this.id++;

@@ -18,7 +18,7 @@ var CardYours = (function () {
     function CardYours(userService) {
         this.userService = userService;
         this.user = new vos_1.VOUserExt({});
-        this.myImage = this.user.profile_pic;
+        this.myImage = '';
     }
     CardYours.prototype.ngOnInit = function () {
         var _this = this;
@@ -26,12 +26,14 @@ var CardYours = (function () {
         this.userService.user$.subscribe(function (user) {
             console.log(user);
             _this.user = user;
+            _this.user.displayName = user.firstName + ' ' + user.lastName;
+            _this.myImage = 'url(' + _this.user.profile_pic + ')';
         });
     };
     CardYours = __decorate([
         core_1.Component({
             selector: 'card-yours',
-            template: "\n<div>\n Card Yours\n<div my-md-image=\"user.profile_pic\"></div>\n <div>{{user.displayName}}</div>\n        <div><span>{{user.city}}</span>, <span>{{user.province}}</span></div> \n        <div>\n          <div>Offerings: <span>{{user.offers}}</span></div>\n          <div>Needs: <span>{{user.needs}}</span></div>        \n        </div>        \n</div>\n"
+            template: "\n<div>\n <!--Card Yours-->\n<div class=\"row\">\n    <div class=\"col-sm-5\">\n        <div [my-md-image]=\"myImage\" [size]=\"'130x130'\"></div>\n    </div>\n    <div class=\"col-sm-7\">\n        <div><h5>{{user.displayName}}</h5></div>\n        <div><span>{{user.city}}</span>, <span>{{user.province}}</span></div>\n         <br>\n        <div>\n          <div><strong>Offerings: <span class=\"text-warning\">{{user.offers}}</span></strong></div>\n          <div><strong>Needs: <span class=\"text-warning\">{{user.needs}}</span></strong></div>        \n        </div>        \n    </div>\n</div>\n\n</div>\n"
         }), 
         __metadata('design:paramtypes', [user_service_1.UserService])
     ], CardYours);

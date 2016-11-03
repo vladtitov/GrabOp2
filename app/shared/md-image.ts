@@ -16,7 +16,7 @@ export class MyMdImage implements OnInit{
 
   @Input("my-md-image") url:string;
   @Input() shape:string = 'round';
-  @Input() size:string = '40x40';
+  @Input("size") size:string = '40x40';
 
   classNames:string;
 

@@ -3,21 +3,29 @@ import {Component} from "@angular/core";
   selector:'home-main'
   ,template:`
 <div>
-    Home Main
+    <!--Home Main-->
+    <div class="card-block">
         <div class="row">
             <div class="col-sm-4">
                 <card-yours></card-yours>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 text-sm-center">
                 <profile-complete></profile-complete>
             </div>
             <div class="col-sm-4">    
                 <comments-home></comments-home>
             </div>
         </div>
-            <home-statistics></home-statistics>
-                <they-need-you></they-need-you>
-                <you-need-them></you-need-them>
+    </div>
+    <div class="card-block">
+        <home-statistics></home-statistics>
+    </div>
+    <div class="card-block">
+        <they-need-you></they-need-you>
+    </div>
+    <div class="card-block">    
+        <you-need-them></you-need-them>
+    </div>
 </div>
 `
 })

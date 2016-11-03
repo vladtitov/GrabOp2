@@ -91,7 +91,7 @@ import {UploadService} from "../myservices/upload-service";
             </div>
             <div class="col-sm-7 text-sm-left">
                 <div *ngFor="let skill of person.skillset; let i=index; trackBy:trackBySkills">
-                    <a class="fa fa-minus-circle btn" (click)="onDeleteClick(i)"></a>                    
+                    <a class="fa fa-minus-circle btn" (click)="onDeleteClick(i)"></a>
                     <!--<input  [(ngModel)]="skill" name="skill"/> cannot assign to a reference or variable-->
                     <input  [(ngModel)]="person.skillset[i]" [ngModelOptions]="{standalone: true}"/>
                 </div>

@@ -15,16 +15,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by Vlad on 9/6/2016.
  */
 var core_1 = require("@angular/core");
+var vos_1 = require("../models/vos");
 var posts_edit_service_1 = require("../post-edit/posts-edit-service");
+var user_service_1 = require("../myservices/user-service");
 var YouNeedThem = (function () {
-    function YouNeedThem(postsService) {
+    function YouNeedThem(postsService, userService) {
         this.postsService = postsService;
+        this.userService = userService;
+        this.user = new vos_1.VOUserExt({});
     }
     YouNeedThem.prototype.ngOnInit = function () {
         var _this = this;
+        this.userService.user$.subscribe(function (user) {
+            _this.user = user;
+        });
         this.postsService.getPosts().subscribe(function (posts) {
             _this.offer = posts.filter(function (item) { return item.type == 'offer'; });
-            console.log(posts);
+            _this.user.offers = _this.offer.length;
         });
     };
     YouNeedThem = __decorate([
@@ -32,7 +39,7 @@ var YouNeedThem = (function () {
             selector: 'you-need-them',
             template: "\n<div >\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <h5>You need Them</h5>\n                <posts-list [posts]=\"offer\"></posts-list>\n            </div>\n        </div>\n</div>\n"
         }), 
-        __metadata('design:paramtypes', [posts_edit_service_1.PostEditService])
+        __metadata('design:paramtypes', [posts_edit_service_1.PostEditService, user_service_1.UserService])
     ], YouNeedThem);
     return YouNeedThem;
 }());

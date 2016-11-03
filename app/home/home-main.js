@@ -15,7 +15,7 @@ var HomeMain = (function () {
     HomeMain = __decorate([
         core_1.Component({
             selector: 'home-main',
-            template: "\n<div>\n    Home Main\n        <div class=\"row\">\n            <div class=\"col-sm-4\">\n                <card-yours></card-yours>\n            </div>\n            <div class=\"col-sm-4\">\n                <profile-complete></profile-complete>\n            </div>\n            <div class=\"col-sm-4\">    \n                <comments-home></comments-home>\n            </div>\n        </div>\n            <home-statistics></home-statistics>\n                <they-need-you></they-need-you>\n                <you-need-them></you-need-them>\n</div>\n"
+            template: "\n<div>\n    <!--Home Main-->\n    <div class=\"card-block\">\n        <div class=\"row\">\n            <div class=\"col-sm-4\">\n                <card-yours></card-yours>\n            </div>\n            <div class=\"col-sm-4 text-sm-center\">\n                <profile-complete></profile-complete>\n            </div>\n            <div class=\"col-sm-4\">    \n                <comments-home></comments-home>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-block\">\n        <home-statistics></home-statistics>\n    </div>\n    <div class=\"card-block\">\n        <they-need-you></they-need-you>\n    </div>\n    <div class=\"card-block\">    \n        <you-need-them></you-need-them>\n    </div>\n</div>\n"
         }), 
         __metadata('design:paramtypes', [])
     ], HomeMain);

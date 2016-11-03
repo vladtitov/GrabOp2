@@ -12,7 +12,7 @@ import {Component} from "@angular/core";
             <h5>Your Profile Complete</h5>
             <div><span class="fa fa-star-half-full"></span></div>
             <div>
-              <a >Enhance your Profile</a>
+              <a class="text-info">Enhance your Profile</a>
             </div>
             
 </div>
