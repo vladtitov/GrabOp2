@@ -54,8 +54,7 @@ export class HomeStatistics{
     ngOnInit(){
         this.userService.getStatistics().subscribe(res=>{
             this.statistics = res;
-            console.log('statistics', this.statistics);
+            // console.log('statistics', this.statistics);
         });
-        // this.statistics = this.statistics.VOResalt;
     }
 }

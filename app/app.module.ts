@@ -18,13 +18,15 @@ import {SharedModule} from "./shared/shared-module";
 import {RouterModule} from "@angular/router";
 import {LandModule} from "./landing/land-module";
 import {ToLogin} from "./login/to-login";
-import {MySettings} from "./mysettings/my-settings";
 import {HowItWorks} from "./pages/how-it-works";
 import {TermsOfUse} from "./pages/terms-of-use";
 import {ContactUs} from "./pages/contact-us";
 import SearchModule from "./search/search-module";
 import {SearchMain} from "./search/search-main";
 import {UploadService} from "./myservices/upload-service";
+import {MySettings} from "./mysettings/my-settings";
+
+// import {MySettingsModule} from "./mysettings/mysettings-module";
 
 
 
@@ -43,7 +45,8 @@ export const routeConfig=[
   ,{path:'opportunities',loadChildren:'app/opportunities/opportunities-module'}
   ,{path:'projects',loadChildren:'app/projects/projects-module'}
   ,{path:'alliances',loadChildren:'app/alliances/alliances-module'}
-  ,{path:'settings', component:MySettings}
+  ,{path:'settings',loadChildren:'app/mysettings/mysettings-module'}
+  // ,{path:'settings', component:MySettings}
   ,{path:'how-it-works', component:HowItWorks}
   ,{path:'terms-of-use', component:TermsOfUse}
   ,{path:'search', component:SearchMain}
@@ -74,10 +77,10 @@ export const routeConfig=[
     ,NavMain
     ,LoginLogin
     ,ToLogin
-    ,MySettings
     ,HowItWorks
     ,TermsOfUse
     ,ContactUs
+    ,MySettings
   ],
 
   bootstrap: [ AppComponent ]

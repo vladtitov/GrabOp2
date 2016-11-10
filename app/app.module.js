@@ -23,13 +23,14 @@ var shared_module_1 = require("./shared/shared-module");
 var router_1 = require("@angular/router");
 var land_module_1 = require("./landing/land-module");
 var to_login_1 = require("./login/to-login");
-var my_settings_1 = require("./mysettings/my-settings");
 var how_it_works_1 = require("./pages/how-it-works");
 var terms_of_use_1 = require("./pages/terms-of-use");
 var contact_us_1 = require("./pages/contact-us");
 var search_module_1 = require("./search/search-module");
 var search_main_1 = require("./search/search-main");
 var upload_service_1 = require("./myservices/upload-service");
+var my_settings_1 = require("./mysettings/my-settings");
+// import {MySettingsModule} from "./mysettings/mysettings-module";
 var indexRoute = { path: '', component: land_main_1.LandMain };
 var fallBackRoute = { path: '**', component: land_main_1.LandMain };
 exports.routeConfig = [
@@ -42,7 +43,7 @@ exports.routeConfig = [
     { path: 'opportunities', loadChildren: 'app/opportunities/opportunities-module' },
     { path: 'projects', loadChildren: 'app/projects/projects-module' },
     { path: 'alliances', loadChildren: 'app/alliances/alliances-module' },
-    { path: 'settings', component: my_settings_1.MySettings },
+    { path: 'settings', loadChildren: 'app/mysettings/mysettings-module' },
     { path: 'how-it-works', component: how_it_works_1.HowItWorks },
     { path: 'terms-of-use', component: terms_of_use_1.TermsOfUse },
     { path: 'search', component: search_main_1.SearchMain },
@@ -73,10 +74,10 @@ var AppModule = (function () {
                 nav_main_1.NavMain,
                 login_login_1.LoginLogin,
                 to_login_1.ToLogin,
-                my_settings_1.MySettings,
                 how_it_works_1.HowItWorks,
                 terms_of_use_1.TermsOfUse,
-                contact_us_1.ContactUs
+                contact_us_1.ContactUs,
+                my_settings_1.MySettings
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: [

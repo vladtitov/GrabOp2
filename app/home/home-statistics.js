@@ -24,9 +24,8 @@ var HomeStatistics = (function () {
         var _this = this;
         this.userService.getStatistics().subscribe(function (res) {
             _this.statistics = res;
-            console.log('statistics', _this.statistics);
+            // console.log('statistics', this.statistics);
         });
-        // this.statistics = this.statistics.VOResalt;
     };
     HomeStatistics = __decorate([
         core_1.Component({

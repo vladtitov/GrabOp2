@@ -24,6 +24,7 @@ session_start();
     <link rel="stylesheet" href="css/cards.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/switch.css">
 
     <script src="node_modules/core-js/client/shim.min.js"></script>
 
@@ -31,6 +32,7 @@ session_start();
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
 
+<!--    <script> var user_id = "<?php //echo $_SESSION['user_id'];?>////"; console.log('user_id', user_id);</script>-->
     <script src="systemjs.config<?php echo $id; ?>.js"></script>
     <script>
       System.import('app').catch(function(err){ console.error(err); });

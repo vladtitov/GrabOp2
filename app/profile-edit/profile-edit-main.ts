@@ -61,7 +61,6 @@ export class ProfileEditMain{
                 this.userService.getUser();
             }
         )
-
     }
 
 }

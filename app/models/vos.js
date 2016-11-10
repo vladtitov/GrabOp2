@@ -126,6 +126,14 @@ var VOUserExt = (function (_super) {
     return VOUserExt;
 }(VOUser));
 exports.VOUserExt = VOUserExt;
+var VOAccountSettings = (function () {
+    function VOAccountSettings(obj) {
+        for (var str in obj)
+            this[str] = obj[str];
+    }
+    return VOAccountSettings;
+}());
+exports.VOAccountSettings = VOAccountSettings;
 var VOSettings = (function () {
     function VOSettings() {
     }
@@ -147,6 +155,7 @@ var VOSettings = (function () {
     VOSettings.server = 'api/service.php?api=';
     VOSettings.upload = 'api/upload.php';
     VOSettings.login = 'api/login.php?api=';
+    VOSettings.settings = 'api/settings.php';
     VOSettings.images = 'http://res.cloudinary.com/al3kosvh/image/upload/';
     VOSettings.SMALL = 't_thumbnail';
     VOSettings.images_small = 'http://res.cloudinary.com/al3kosvh/image/upload/';

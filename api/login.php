@@ -29,10 +29,22 @@ switch($api[0]){
 	case 'exists':	
 	$login = new Login();
 	$out = $login->exists($api,$post);	
-	break;		
+	break;
+    case 'account':
+    $login = new Login();
+    $out = $login->get_Account();
+    break;
+    case 'update':
+        $login = new Login();
+        $out = $login->update($api,$post);
+        break;
+    case 'settings':
+        $login = new Login();
+        $out = $login->settings($api,$post,$method);
+        break;
 	case 'user':	
 	$login = new Login();
-	$out = $login->douser($api,$post,$method);	
+	$out = $login->douser($api,$post,$method);
 	
 	break;	
 }

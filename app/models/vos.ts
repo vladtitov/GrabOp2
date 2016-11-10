@@ -175,11 +175,14 @@ export class VOAccount {
   id: number;
   type: string;
   username: string;
-  password:string
+  password:string;
   firstName:string;
   lastName:string;
   email:string;
   user_id:number;
+    new_username: string;
+    new_password:string;
+    new_email:string;
   constructor(obj:any){ for(let str in obj)this[str] = obj[str];}
 }
 
@@ -233,7 +236,24 @@ export class VOUserExt extends VOUser{
   constructor(obj:any){ super(obj);}
 }
 
+export class VOAccountSettings{
+    connection_requests:boolean;
+    new_messages:boolean;
+    alliance_notifications:boolean;
+    task_notifications:boolean;
+    service_notifications:boolean;
 
+    phone_number:boolean;
+    email_addres:boolean;
+    connections:boolean;
+    profile_views_count:boolean;
+    service_views_count:boolean;
+    total_number_people:boolean;
+    total_number_members:boolean;
+    total_sales:boolean;
+
+    constructor(obj:any){ for(let str in obj)this[str] = obj[str];}
+}
 
 
 export class VOSettings{
@@ -242,6 +262,7 @@ export class VOSettings{
   static server:string = 'api/service.php?api=';
   static upload:string ='api/upload.php';
   static login:string ='api/login.php?api=';
+  static settings:string ='api/settings.php';
   static images:string = 'http://res.cloudinary.com/al3kosvh/image/upload/';
   static SMALL:string ='t_thumbnail';
   static images_small:string = 'http://res.cloudinary.com/al3kosvh/image/upload/';

@@ -59,11 +59,81 @@ class Login{
 		if(isset($_SESSION['user_id']))$user_id = $_SESSION['user_id'];
 		if($user_id){
 			$db = $this->db();
-			return $db->selectById($user_id,'users');			
+			return $db->selectById($user_id,'users');
 		}
 		return $this->pleaseLogin();
 		
 	}
+
+    function get_Account(){
+        $user_id=isset($_SESSION['user_id'])?$_SESSION['user_id']:0;
+        if($user_id){
+            $db = $this->db();
+            $row = $db->selectByValue($user_id,'users_id','accounts');
+            return $row[0];
+        }
+        return $this->pleaseLogin();
+    }
+
+    function update($api,$post){
+        $user_id=isset($_SESSION['user_id'])?$_SESSION['user_id']:0;
+        if(!$user_id) return $this->pleaseLogin();
+
+        $param = $api[1];
+        $user = $post;
+        $out = new stdClass();
+        $acc = $this->get_Account();
+        if($param == 'password'){
+            $password = md5($user['password']);
+            if($password == $acc['password']){
+                $acc['password'] = md5($user['new_password']);
+                $db = $this->db();
+                $out->result= $db->updateRowByColumn($acc,'users_id','accounts');
+                if($out->result)$out->success='success';
+            }else{
+                $out->error='wrong password';
+                $out->message='Please enter the correct current password';
+            }
+        } elseif ($param == 'account'){
+            foreach ($user as $key => $value){
+                $acc[$key] = $user[$key];
+            }
+            $db = $this->db();
+            $out->result= $db->updateRowByColumn($acc,'users_id','accounts');
+            if($out->result)$out->success='success';
+        }
+        return $out;
+    }
+
+    function settings($api,$post,$method){
+            if(!isset($_SESSION['user_id'])) return $this->pleaseLogin();
+            $user_id = $_SESSION['user_id'];
+            $db = $this->db();
+            if($method=='GET') {
+                $out = $db->selectById($user_id ,'users');
+                $out['skillset'] = explode(",", $out['skillset']);
+                return $out;
+//			return $db->selectById($user_id ,'users');
+
+            }else if($method=='POST'){
+                $post['id'] = $user_id;
+                $post['skillset'] = implode(",", $post['skillset']);
+                $out = new stdClass();
+                $out->result= $db->updateRow($post,'users');
+                if($out->result)$out->success='success';
+                return $out;
+
+            }
+
+        $user_id=isset($_SESSION['user_id'])?$_SESSION['user_id']:0;
+        if($user_id){
+            $db = $this->db();
+            $row = $db->selectByValue($user_id,'users_id','accounts');
+            return $row[0];
+        }
+        return $this->pleaseLogin();
+    }
+
 	function pleaseLogin(){
 		$out = new stdClass();
 		$out->error='pleaselogin';
