@@ -20,7 +20,8 @@ var search_main_1 = require("./search-main");
 var search_result_1 = require("./search-result");
 var form_search_advanced_1 = require("../forms/form-search-advanced");
 var myRoutes = [
-    { path: 'search', component: search_main_1.SearchMain }
+    { path: 'search', component: search_main_1.SearchMain
+    }
 ];
 var SearchModule = (function () {
     function SearchModule() {

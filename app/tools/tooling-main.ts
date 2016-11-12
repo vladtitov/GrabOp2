@@ -15,30 +15,32 @@ import {UserService} from "../myservices/user-service";
           </div>
           <div class="row">
             <div class="col-xs-1">
-              <a class="fa fa-bars" (click)="onNavClick()"></a>
+                <a class="fa fa-bars" (click)="onNavClick()"></a>
+            </div>
+            <div class="col-xs-4">
+                <tools-search></tools-search>
+            </div>
+            <div class="col-xs-1 hidden-xs-down">
+                <tools-explore></tools-explore>
             </div>
             <div class="col-xs-1">
-              <tools-search ></tools-search>
-            </div>
-            <div class="hidden-xs-down">
-              <tools-explore></tools-explore>
+                <tools-post></tools-post>
             </div>
             <div class="col-xs-1">
-               <tools-post></tools-post>
+                <tools-personal></tools-personal>  
             </div>
-            <div class="col-xs-1">
-              <tools-personal></tools-personal>  
-            </div>
-            <div class="hidden-xs-down">
+            <div class="col-xs-1 hidden-xs-down">
                 <tools-help></tools-help>
              </div>
              <div class="col-xs-1">
-              <tools-menu></tools-menu>
+                <tools-menu></tools-menu>
              </div>
              <div class="col-xs-1">
-              <tools-notifications></tools-notifications>
-            </div> 
-            <a  class="btn btn-outline-danger" (click)="onLogout()">Logout</a>      
+                <tools-notifications></tools-notifications>
+             </div>
+             <div class="col-xs-1 text-xs-right">
+                <a class="btn btn-outline-danger" (click)="onLogout()">Logout</a>
+             </div>      
           </div>
     </div>
 </div>         

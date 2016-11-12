@@ -17,7 +17,8 @@ var SearchMain = (function () {
     }
     SearchMain = __decorate([
         core_1.Component({
-            template: "<h2>Search Main</h2>\n<form-search-advanced></form-search-advanced>\n<search-result></search-result>\n      \n "
+            template: "\n    <h2>Search Main</h2>\n    <div class=\"container\">\n        <div class=\"card-block\">\n            <div class=\"row\">\n                <div class=\"col-xs-4 br\">\n                    <form-search-advanced></form-search-advanced>\n                </div>\n                <div class=\"col-xs-8\">\n                    <search-result></search-result>\n                </div>\n            </div>  \n        </div>\n    </div>\n        \n ",
+            styles: ["\n        .br{\n            border-right: solid 2px #c1c1c1;\n        }\n"]
         }), 
         __metadata('design:paramtypes', [])
     ], SearchMain);

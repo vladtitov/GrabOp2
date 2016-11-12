@@ -9,74 +9,98 @@ import {VOSearch} from "../models/vos";
   selector:'form-search-advanced'
   ,template:`
 <div>
-<h2>Search Advanced</h2>
- <form  #f="ngForm" autocomplete="off" novalidate >
-          <fieldset>          
-              <div class="from-field">                
-                <label>Search</label>
-                <input  [(ngModel)]="search.pattern" name="pattern" />
+    <h3 class="text-muted text-xs-center">Advanced search</h3>
+    <br>
+    <form  #f="ngForm" autocomplete="off" novalidate class="form-horizontal">
+              <div class="form-group row">                
+                <label class="col-sm-3 text-sm-right">Search</label>
+                <input class="col-sm-8" [(ngModel)]="search.pattern" name="pattern" />
               </div>
-               <div class="from-field">                
-                <label>Country</label>
-                <input [(ngModel)]="search.country" name="lcountry" />
+               <div class="form-group row">                
+                <label class="col-sm-3 text-sm-right">Country</label>
+                <input class="col-sm-8" [(ngModel)]="search.country" name="lcountry" />
               </div>
-               <div class="from-field">                
-                <label>Province</label>
-                <input [(ngModel)]="search.province" name="province" />
+               <div class="form-group row">                
+                <label class="col-sm-3 text-sm-right">Province</label>
+                <input class="col-sm-8" [(ngModel)]="search.province" name="province" />
               </div>
-               <div class="from-field">                
-                <label>City</label>
-                <input [(ngModel)]="search.city" name="city" />
+               <div class="form-group row">                
+                <label class="col-sm-3 text-sm-right">City</label>
+                <input class="col-sm-8" [(ngModel)]="search.city" name="city" />
+              </div>
+          <br>
+              <h5>Business Style</h5>
+               <div class="form-group has-success">                
+                    <label class="custom-control custom-checkbox offset-sm-3">
+                        <input [(ngModel)]="search.partnership" type="checkbox" class="custom-control-input" name="partnership" />
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Business Partnership</span>
+                    </label>
+               </div>
+               <div class="form-group has-warning">                
+                    <label class="custom-control custom-checkbox offset-sm-3">
+                        <input [(ngModel)]="search.exchange"  type="checkbox" class="custom-control-input" name="exchange" />
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Exchange</span>
+                    </label>
+               </div>
+               <div class="form-group has-danger">                
+                    <label class="custom-control custom-checkbox offset-sm-3">
+                        <input [(ngModel)]="search.donate" class="custom-control-input" type="checkbox" name ="donate" />
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Donate</span>
+                    </label>
+              </div>
+               <div class="form-group has-warning">                
+                    <label class="custom-control custom-checkbox offset-sm-3">
+                        <input [(ngModel)]="search.internship" class="custom-control-input" type="checkbox"  name="internship" />
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Internship</span>
+                    </label>
+              </div>  
+              <div class="form-group has-danger">
+                    <label class="custom-control custom-checkbox offset-sm-3">
+                        <input [(ngModel)]="search.money" class="custom-control-input" type="checkbox"  name="money" />
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Money</span>
+                    </label>
               </div>
               
-              <h4>Business Style</h4>
-                   <div class="from-field">                
-                    <label>Business Partnership</label>
-                    <input [(ngModel)]="search.partnership" type="checkbox" name="partnership" />
-                  </div>
-                   <div class="from-field">                
-                    <label>Exchange</label>
-                    <input [(ngModel)]="search.exchange" type="checkbox" name="exchange" />
-                  </div>
-                   <div class="from-field">                
-                    <label>Donate</label>
-                    <input [(ngModel)]="search.donate"  type="checkbox" name ="donate" />
-                  </div>
-                   <div class="from-field">                
-                    <label>Internship</label>
-                    <input [(ngModel)]="search.internship" type="checkbox"  name="internship" />
-                  </div>  
-                  <div class="from-field">                
-                    <label>Money</label>
-                    <input [(ngModel)]="search.money" type="checkbox"  name="money" />
-                  </div> 
-                 
-                 
-              <div class="from-field">                
-                <label>Fixed</label>
-                <input [(ngModel)]="search.fixedFrom" name="fixedFrom" /> to  <input [(ngModel)]="search.fixedTo" name="fixedTo" />
+          
+              <div class="form-group form-inline row">                
+                <label class="col-sm-4 text-sm-right pl-pr-0"><span class="text-warning">Fixed </span>$</label>
+                <input class="col-sm-3" [(ngModel)]="search.fixedFrom" name="fixedFrom" /> 
+                <label class="col-sm-1">to</label>  
+                <input class="col-sm-3" [(ngModel)]="search.fixedTo" name="fixedTo" />
               </div>
               
-                  
-              <div class="from-field">                
-                <label>Hourly</label>
-                <input [(ngModel)]="search.hourlyFrom" name="hourlyFrom" /> to  <input [(ngModel)]="search.hourlyTo" name="hourlyTo" />
+              <div class="form-group row">                
+                <label class="col-sm-4 text-sm-right pl-pr-0"><span class="text-warning">Hourly </span>$</label>
+                <input class="col-sm-3" [(ngModel)]="search.hourlyFrom" name="hourlyFrom" />
+                <label class="col-sm-1">to</label>
+                <input class="col-sm-3" [(ngModel)]="search.hourlyTo" name="hourlyTo" />
               </div>
               
-               <div class="from-field">                
-                <label>Commission</label>
-                <input [(ngModel)]="search.commissionFrom" name="commissionFrom" /> to  <input [(ngModel)]="search.commissionTo" name="commissionTo" />
+               <div class="form-group row">                
+                <label class="col-sm-4 text-sm-right pl-pr-0"><span class="text-warning">Commission </span>%</label>
+                <input class="col-sm-3" [(ngModel)]="search.commissionFrom" name="commissionFrom" />
+                <label class="col-sm-1">to</label>
+                <input class="col-sm-3" [(ngModel)]="search.commissionTo" name="commissionTo" />
               </div>
-                 
-                 
-          </fieldset>          
-          </form> 
-     <div class="debug">
-        <h3>Form Value:</h3>
+          <button class="btn btn-primary btn-lg btn-block" (click)="onSearchClick()">search</button>
+    </form>
+    <div class="debug">
+        <h6>Form Value:</h6>
         {{ f.value | json }}
-      </div>   
-   </div>   
+    </div>   
+</div>   
  `
+,styles:[`
+        .pl-pr-0{
+            padding-left: 0;
+            padding-right: 0;
+        }
+`]
 })
 export class FormSearchAdvanced{
 
@@ -85,6 +109,9 @@ export class FormSearchAdvanced{
   constructor( private fb:FormBuilder){
 
   }
+
+    onSearchClick(){}
+
   /*
   * export class VOSearch{
    pattern:string;

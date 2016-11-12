@@ -28,10 +28,10 @@ form input[type='radio'] {
   /*margin-left: 10px;*/
 }
 
-form button[type='submit'] {
-  float: right;
-  margin-right: 75px;
-}
+/*form button[type='submit'] {*/
+  /*float: right;*/
+  /*margin-right: 75px;*/
+/*}*/
 
 .debug {
   clear: both;

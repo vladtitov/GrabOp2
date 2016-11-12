@@ -18,7 +18,7 @@ var ToolsHelp = (function () {
     ToolsHelp = __decorate([
         core_1.Component({
             selector: 'tools-help',
-            template: "\n<div class=\"col-xs-2\" >\n            Help\n</div>\n"
+            template: "\n<div>\n            Help\n</div>\n"
         }), 
         __metadata('design:paramtypes', [])
     ], ToolsHelp);

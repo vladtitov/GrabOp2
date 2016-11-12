@@ -12,7 +12,15 @@ import {FormSearchAdvanced} from "../forms/form-search-advanced";
 
 
 const myRoutes = [
-  { path: 'search' ,component: SearchMain }
+  { path: 'search' ,component: SearchMain
+    //   , children: [
+    //   {path: '', component: ProfileEditMain,redirectTo:'personal'}
+    //   ,{path: 'username', component: ProfileEditUsername}
+    //   ,{path: 'company', component: ProfileEditCompany}
+    //   ,{path: 'personal', component: ProfileEditPersonal}
+    //   ,{path: 'assets', component: ProfileEditAssets}
+    // ]
+  }
 
 ];
 

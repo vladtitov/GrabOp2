@@ -70,7 +70,7 @@ import {PostEditService} from "./posts-edit-service";
                  </div> 
                              
               </div>           
-          </form>
+           </form>
           
           <div class="debug">{{ model | json }}</div>  
 

@@ -36,6 +36,14 @@ var PostEditService = (function () {
                 _this._selectById();
         });
     };
+    PostEditService.prototype.getAllPosts = function () {
+        var url = vos_1.VOSettings.posts;
+        return this.http.get(url)
+            .map(function (res) {
+            return res.json().map(function (item) { return new vos_1.VOPost(item); });
+        })
+            .catch(this.handleError);
+    };
     PostEditService.prototype.getPosts = function () {
         var url = vos_1.VOSettings.server + 'posts';
         return this.http.get(url)

@@ -44,6 +44,15 @@ export class PostEditService {
     )
   }
 
+    getAllPosts():Observable<any>{
+        var url:string = VOSettings.posts;
+        return this.http.get(url)
+            .map((res:Response)=>{
+                return res.json().map(function(item){ return new VOPost(item)});
+            })
+            .catch(this.handleError)
+    }
+
   getPosts():Observable<any>{
     var url:string = VOSettings.server+'posts';
     return this.http.get(url)

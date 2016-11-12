@@ -133,6 +133,11 @@ class Posts{
 		//return $db->selectJoinById('posts','users',$user_id);		
 	}
 
+    function getAllPosts(){
+        return $this->db()->selectAllTable('posts');
+        //return $db->selectJoinById('posts','users',$user_id);
+    }
+
 
 	
 }

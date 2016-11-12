@@ -15,10 +15,11 @@ var core_1 = require("@angular/core");
 var ToolsSearch = (function () {
     function ToolsSearch() {
     }
+    ToolsSearch.prototype.onClick = function () { };
     ToolsSearch = __decorate([
         core_1.Component({
             selector: 'tools-search',
-            template: "\n<div>\n    <span class=\"fa fa-search\"></span>           \n</div>\n"
+            template: "\n<div>\n    <form class=\"form-inline\">\n      <div class=\"form-group\">\n        <a class=\"fa fa-search\" (click)=\"onClick()\"></a>\n        <!--<label for=\"searchInput\"><span class=\"fa fa-search\"></span></label>-->\n        <input type=\"text\" class=\"form-control\" id=\"searchInput\" placeholder=\"search for services\">\n      </div>\n      <a class=\"btn btn-secondary\" [routerLink]=\"['/search']\"  routerLinkActive=\"active\">advanced</a>\n      <!--<button type=\"submit\" class=\"btn btn-primary\">advanced</button>-->\n    </form>\n</div>\n"
         }), 
         __metadata('design:paramtypes', [])
     ], ToolsSearch);

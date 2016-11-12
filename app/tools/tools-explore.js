@@ -15,7 +15,7 @@ var ToolsExplore = (function () {
     ToolsExplore = __decorate([
         core_1.Component({
             selector: 'tools-explore',
-            template: "\n<div class=\"col-xs-2\" >\n           Explore\n</div>\n"
+            template: "\n<div>\n           Explore\n</div>\n"
         }), 
         __metadata('design:paramtypes', [])
     ], ToolsExplore);
