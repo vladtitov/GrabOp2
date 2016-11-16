@@ -12,15 +12,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by Vlad on 9/19/2016.
  */
 var core_1 = require("@angular/core");
+var vos_1 = require("../models/vos");
+var router_1 = require("@angular/router");
+var search_service_1 = require("./search-service");
 var SearchMain = (function () {
-    function SearchMain() {
+    function SearchMain(route, postsService) {
+        var _this = this;
+        this.postsService = postsService;
+        this.searchingPost = new vos_1.VOSearch({});
+        route.params.subscribe(function (params) {
+            _this.searchingPost.pattern = params['pattern'];
+        });
     }
+    SearchMain.prototype.onSearch = function (search) {
+        this.searchingPost = search;
+        // console.log('this.searchingPost', this.searchingPost);
+    };
     SearchMain = __decorate([
         core_1.Component({
-            template: "\n    <h2>Search Main</h2>\n    <div class=\"container\">\n        <div class=\"card-block\">\n            <div class=\"row\">\n                <div class=\"col-xs-4 br\">\n                    <form-search-advanced></form-search-advanced>\n                </div>\n                <div class=\"col-xs-8\">\n                    <search-result></search-result>\n                </div>\n            </div>  \n        </div>\n    </div>\n        \n ",
+            template: "\n    <h2>Search Main</h2>\n    <div class=\"container\">\n        <div class=\"card-block\">\n            <div class=\"row\">\n                <div class=\"col-xs-4 br\">\n                    <form-search-advanced (search)=\"onSearch($event)\"></form-search-advanced>\n                </div>\n                <div class=\"col-xs-8\">\n                    <search-result  [search]=\"searchingPost\"></search-result>\n                </div>\n            </div>\n        </div>\n    </div>\n        \n ",
             styles: ["\n        .br{\n            border-right: solid 2px #c1c1c1;\n        }\n"]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, search_service_1.SearchService])
     ], SearchMain);
     return SearchMain;
 }());

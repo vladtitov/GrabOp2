@@ -12,9 +12,12 @@ import {SharedModule} from "../shared/shared-module";
 import {CommonModule} from "@angular/common";
 import {ToolsService} from "./tools-service";
 import {RouterModule} from "@angular/router";
+import {FormsModule} from "@angular/forms";
+
 @NgModule({
   imports:[
     CommonModule
+    ,FormsModule
     ,SharedModule
     ,RouterModule
   ],

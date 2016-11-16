@@ -17,6 +17,9 @@ switch ($method){
     case 'GET':
         echo json_encode($posts ->getAllPosts());
         break;
+    case 'POST':
+        echo json_encode($posts ->getPosts($body));
+        break;
     case 'PATCH':
         echo json_encode($posts ->updatePost($user_id,$body));
         break;

@@ -138,6 +138,10 @@ class Posts{
         //return $db->selectJoinById('posts','users',$user_id);
     }
 
+    function getPosts($post){
+        return $this->db()->selectAllTable('posts');
+        //return $db->selectJoinById('posts','users',$user_id);
+    }
 
 	
 }

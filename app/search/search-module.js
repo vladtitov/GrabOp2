@@ -19,9 +19,11 @@ var shared_module_1 = require("../shared/shared-module");
 var search_main_1 = require("./search-main");
 var search_result_1 = require("./search-result");
 var form_search_advanced_1 = require("../forms/form-search-advanced");
+var search_service_1 = require("./search-service");
 var myRoutes = [
     { path: 'search', component: search_main_1.SearchMain
-    }
+    },
+    { path: 'search/:pattern', component: search_main_1.SearchMain }
 ];
 var SearchModule = (function () {
     function SearchModule() {
@@ -43,7 +45,9 @@ var SearchModule = (function () {
                 search_result_1.SearchResult,
                 form_search_advanced_1.FormSearchAdvanced
             ],
-            providers: []
+            providers: [
+                search_service_1.SearchService
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], SearchModule);

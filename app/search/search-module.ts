@@ -9,6 +9,7 @@ import {SharedModule} from "../shared/shared-module";
 import {SearchMain} from "./search-main";
 import {SearchResult} from "./search-result";
 import {FormSearchAdvanced} from "../forms/form-search-advanced";
+import {SearchService} from "./search-service";
 
 
 const myRoutes = [
@@ -21,6 +22,7 @@ const myRoutes = [
     //   ,{path: 'assets', component: ProfileEditAssets}
     // ]
   }
+  ,{path: 'search/:pattern' ,component: SearchMain}
 
 ];
 
@@ -46,7 +48,7 @@ const myRoutes = [
   ],
 
   providers: [
-
+      SearchService
   ]
 })
 export default class SearchModule {}

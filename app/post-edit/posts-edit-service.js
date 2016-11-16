@@ -17,6 +17,9 @@ var vos_1 = require("../models/vos");
 var PostEditService = (function () {
     function PostEditService(http) {
         this.http = http;
+        this.postSub = new Subject_1.Subject();
+        this.posts$ = this.postSub.asObservable();
+        this.get_AllPosts();
         console.log('PostsEditService');
         this.myServicesSubject = new Subject_1.Subject();
         this.myServices = this.myServicesSubject.asObservable();
@@ -36,6 +39,49 @@ var PostEditService = (function () {
                 _this._selectById();
         });
     };
+    PostEditService.prototype.searchPosts = function (search) {
+        this.posts = this.posts.filter(function (post) {
+            if ('fixedFrom' in search) {
+            }
+            for (var key in search) {
+                if (search[key] != post[key])
+                    return false;
+            }
+            return true;
+        });
+        this.postSub.next(this.posts);
+        console.log('this.posts', this.posts);
+    };
+    // checkPost(post:VOPost, search:VOSearch){
+    //     for(var key in search){
+    //         if(search[key] !== post[key]) return false;
+    //     }
+    //     return true;
+    // }
+    PostEditService.prototype.get_AllPosts = function () {
+        var _this = this;
+        var url = vos_1.VOSettings.posts;
+        this.http.get(url)
+            .map(function (res) {
+            // console.log('res:Res', res.json().map(function(item){ return new VOPost(item)}));
+            return res.json().map(function (item) { return new vos_1.VOPost(item); });
+        })
+            .catch(this.handleError)
+            .subscribe(function (res) {
+            _this.posts = res;
+            _this.postSub.next(res);
+            console.log('this.posts', _this.posts);
+        });
+    };
+    // get_AllPosts():Observable<VOPost[]>{
+    //     var url:string = VOSettings.posts;
+    //     return this.http.get(url)
+    //             .map((res:Response)=>{
+    //                 // console.log('res:Res', res.json().map(function(item){ return new VOPost(item)}));
+    //                 return res.json().map(function(item){ return new VOPost(item)});
+    //             })
+    //             .catch(this.handleError)
+    // }
     PostEditService.prototype.getAllPosts = function () {
         var url = vos_1.VOSettings.posts;
         return this.http.get(url)

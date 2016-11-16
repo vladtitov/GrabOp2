@@ -1,9 +1,11 @@
 /**
  * Created by Vlad on 9/19/2016.
  */
-import {Component} from "@angular/core";
-import {FormGroup, FormBuilder} from "@angular/forms";
+import {Component, Output, EventEmitter} from "@angular/core";
+import {FormGroup, FormBuilder, NgForm} from "@angular/forms";
 import {VOSearch} from "../models/vos";
+// import {PostEditService} from "../post-edit/posts-edit-service";
+import {SearchService} from "../search/search-service";
 
 @Component({
   selector:'form-search-advanced'
@@ -11,14 +13,14 @@ import {VOSearch} from "../models/vos";
 <div>
     <h3 class="text-muted text-xs-center">Advanced search</h3>
     <br>
-    <form  #f="ngForm" autocomplete="off" novalidate class="form-horizontal">
+    <form  #f="ngForm" autocomplete="off" novalidate class="form-horizontal"> <!-- (ngSubmit)="onSubmit(f)" -->
               <div class="form-group row">                
                 <label class="col-sm-3 text-sm-right">Search</label>
                 <input class="col-sm-8" [(ngModel)]="search.pattern" name="pattern" />
               </div>
                <div class="form-group row">                
                 <label class="col-sm-3 text-sm-right">Country</label>
-                <input class="col-sm-8" [(ngModel)]="search.country" name="lcountry" />
+                <input class="col-sm-8" [(ngModel)]="search.country" name="country" />
               </div>
                <div class="form-group row">                
                 <label class="col-sm-3 text-sm-right">Province</label>
@@ -87,12 +89,13 @@ import {VOSearch} from "../models/vos";
                 <label class="col-sm-1">to</label>
                 <input class="col-sm-3" [(ngModel)]="search.commissionTo" name="commissionTo" />
               </div>
+          <!--<button class="btn btn-primary btn-lg btn-block">search</button>-->
           <button class="btn btn-primary btn-lg btn-block" (click)="onSearchClick()">search</button>
     </form>
     <div class="debug">
         <h6>Form Value:</h6>
         {{ f.value | json }}
-    </div>   
+    </div>
 </div>   
  `
 ,styles:[`
@@ -106,11 +109,32 @@ export class FormSearchAdvanced{
 
   search:VOSearch = new VOSearch({});
 
-  constructor( private fb:FormBuilder){
+    @Output("search") searchOut = new EventEmitter();
+
+  constructor( private postsService:SearchService){
 
   }
 
-    onSearchClick(){}
+    onSearchClick(){
+        var searchPOst:VOSearch = new VOSearch({});
+        for(var key in this.search){
+            if(this.search[key] !== "") searchPOst[key] = this.search[key];
+        }
+        this.postsService.searchPosts(searchPOst);
+        console.log('search', searchPOst);
+        // this.searchOut.emit(this.search);
+    }
+
+    // onSearchClick(){
+    //     console.log('search', this.search);
+    //     this.searchOut.emit(this.search);
+    // }
+
+    // onSubmit(f: NgForm){
+    //     // this.search = f.value;
+    //     // console.log('search', this.search);
+    //     console.log('f.value', f.value);
+    // }
 
   /*
   * export class VOSearch{

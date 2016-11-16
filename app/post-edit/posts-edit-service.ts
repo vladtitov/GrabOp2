@@ -5,13 +5,17 @@ import { Http, Response, } from '@angular/http';
 import { Observable}     from 'rxjs/Observable';
 import { Subject }    from 'rxjs/Subject';
 
-import {VOSettings, VOService, VOResult, VOPost, VOImage, VOCategory} from "../models/vos";
+import {VOSettings, VOService, VOResult, VOPost, VOImage, VOCategory, VOSearch} from "../models/vos";
+import {BehaviorSubject} from "rxjs";
 
 
 
 @Injectable()
 export class PostEditService {
 
+    posts$:Observable<VOPost[]>;
+    private postSub:Subject<VOPost[]>;
+    posts:VOPost[];
 
   private __posts:VOService[];
   private _currentService:VOService;
@@ -21,9 +25,14 @@ export class PostEditService {
   myService:Observable<VOService>;
 
   constructor(private http: Http) {
+      this.postSub = new Subject<VOPost[]>();
+      this.posts$ = this.postSub.asObservable();
+      this.get_AllPosts();
     console.log('PostsEditService');
+
     this.myServicesSubject  = new Subject<VOService[]>();
     this.myServices = this.myServicesSubject.asObservable();
+
     this.myServiceSubject = new Subject<VOService>();
     this.myService = this.myServiceSubject.asObservable();
  // this.loadServices();
@@ -43,6 +52,52 @@ export class PostEditService {
       }
     )
   }
+
+    searchPosts(search:VOSearch){
+        this.posts = this.posts.filter(function(post:VOPost){
+            if('fixedFrom' in search){
+
+            }
+            for(var key in search){
+                if(search[key] != post[key]) return false;
+            }
+            return true;
+        });
+        this.postSub.next(this.posts);
+        console.log('this.posts', this.posts);
+    }
+
+    // checkPost(post:VOPost, search:VOSearch){
+    //     for(var key in search){
+    //         if(search[key] !== post[key]) return false;
+    //     }
+    //     return true;
+    // }
+
+    get_AllPosts():void{
+        var url:string = VOSettings.posts;
+        this.http.get(url)
+            .map((res:Response)=>{
+                // console.log('res:Res', res.json().map(function(item){ return new VOPost(item)}));
+                return res.json().map(function(item){ return new VOPost(item)});
+            })
+            .catch(this.handleError)
+            .subscribe((res:any)=>{
+                this.posts = res;
+                this.postSub.next(res);
+                console.log('this.posts', this.posts);
+            })
+    }
+
+    // get_AllPosts():Observable<VOPost[]>{
+    //     var url:string = VOSettings.posts;
+    //     return this.http.get(url)
+    //             .map((res:Response)=>{
+    //                 // console.log('res:Res', res.json().map(function(item){ return new VOPost(item)}));
+    //                 return res.json().map(function(item){ return new VOPost(item)});
+    //             })
+    //             .catch(this.handleError)
+    // }
 
     getAllPosts():Observable<any>{
         var url:string = VOSettings.posts;

@@ -1,9 +1,10 @@
 /**
  * Created by Vlad on 9/19/2016.
  */
-import {Component, OnInit} from "@angular/core";
-import {PostEditService} from "../post-edit/posts-edit-service";
-import {VOPost} from "../models/vos";
+import {Component, OnInit, Input} from "@angular/core";
+// import {PostEditService} from "../post-edit/posts-edit-service";
+import {VOPost, VOSearch} from "../models/vos";
+import {SearchService} from "./search-service";
 @Component({
   selector:'search-result'
   ,template:`
@@ -45,6 +46,13 @@ import {VOPost} from "../models/vos";
  `
 })
 export class SearchResult extends OnInit{
+
+    // @Input() posts:VOSearch;
+    @Input() search:VOSearch;
+    posts:VOPost[];
+
+    selectedPost:VOPost;
+
     onOfferings:boolean;
     onNeeds:boolean;
     onPeople:boolean;
@@ -54,22 +62,43 @@ export class SearchResult extends OnInit{
     numberNeeds:number;
     numberOffers:number;
 
-    constructor(private postsService:PostEditService){
+    constructor(private postsService:SearchService){
         super();
-        this.postsService.getAllPosts().subscribe(
-            (posts:VOPost[])=>{
-                this.need = posts.filter(item=>{ return item.type=='need'});
-                this.offer = posts.filter(item=>{ return item.type=='offer'});
-                this.numberPosts = posts.length;
-                this.numberNeeds = this.need.length;
-                this.numberOffers = this.offer.length;
-                console.log(posts);
-            });
     }
 
     ngOnInit(){
-        this.onOfferings = true
+        this.onOfferings = true;
+        this.postsService.posts$.subscribe(posts=>{
+            this.need = posts.filter(item=>{ return item.type=='need'});
+            this.offer = posts.filter(item=>{ return item.type=='offer'});
+            this.numberPosts = posts.length;
+            this.numberNeeds = this.need.length;
+            this.numberOffers = this.offer.length;
+            if('pattern' in this.search){
+                console.log('this.search', this.search);
+                // this.postsService.searchPosts(this.search);
+            }
+        });
 
+        // this.postsService.getAllPosts().subscribe(
+        //     (posts:VOPost[])=>{
+        //         this.need = posts.filter(item=>{ return item.type=='need'});
+        //         this.offer = posts.filter(item=>{ return item.type=='offer'});
+        //         this.numberPosts = posts.length;
+        //         this.numberNeeds = this.need.length;
+        //         this.numberOffers = this.offer.length;
+        //         // console.log(posts);
+        //     });
+        // this.postsService.get_AllPosts()
+        //             .subscribe((posts:VOPost[])=>{
+        //                 this.posts = posts;
+        //                 this.need = posts.filter(item=>{ return item.type=='need'});
+        //                 this.offer = posts.filter(item=>{ return item.type=='offer'});
+        //                 this.numberPosts = posts.length;
+        //                 this.numberNeeds = this.need.length;
+        //                 this.numberOffers = this.offer.length;
+        //                 console.log('this.posts', this.posts);
+        //             });
     }
 
     onOfferingsClick(){
@@ -90,5 +119,10 @@ export class SearchResult extends OnInit{
         this.onPeople=true;
     }
 
+    onPostSelect(item:VOPost){
+        if(this.selectedPost)this.selectedPost.selected= false;
+        item.selected= true;
+        this.selectedPost=item;
+    }
 
 }

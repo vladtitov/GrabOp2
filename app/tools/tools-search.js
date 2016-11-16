@@ -12,16 +12,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by Vlad on 9/6/2016.
  */
 var core_1 = require("@angular/core");
+var vos_1 = require("../models/vos");
+var router_1 = require("@angular/router");
 var ToolsSearch = (function () {
-    function ToolsSearch() {
+    function ToolsSearch(router) {
+        this.router = router;
+        this.search = new vos_1.VOSearch({});
     }
-    ToolsSearch.prototype.onClick = function () { };
+    ToolsSearch.prototype.onSearch = function () {
+        this.router.navigate(['search', this.search.pattern]);
+    };
     ToolsSearch = __decorate([
         core_1.Component({
             selector: 'tools-search',
-            template: "\n<div>\n    <form class=\"form-inline\">\n      <div class=\"form-group\">\n        <a class=\"fa fa-search\" (click)=\"onClick()\"></a>\n        <!--<label for=\"searchInput\"><span class=\"fa fa-search\"></span></label>-->\n        <input type=\"text\" class=\"form-control\" id=\"searchInput\" placeholder=\"search for services\">\n      </div>\n      <a class=\"btn btn-secondary\" [routerLink]=\"['/search']\"  routerLinkActive=\"active\">advanced</a>\n      <!--<button type=\"submit\" class=\"btn btn-primary\">advanced</button>-->\n    </form>\n</div>\n"
+            template: "\n<div>\n    <form class=\"form-inline\" #f=\"ngForm\" autocomplete=\"off\" novalidate>\n      <div class=\"form-group\">\n        <a class=\"fa fa-search\" (click)=\"onSearch()\"></a>\n        <!--<label for=\"searchInput\"><span class=\"fa fa-search\"></span></label>-->\n        <input [(ngModel)]=\"search.pattern\" (keyup.enter)=\"onSearch()\" name=\"pattern\" type=\"text\" class=\"form-control\" id=\"searchInput\" placeholder=\"search for services\">\n      </div>\n      <a class=\"btn btn-secondary\" [routerLink]=\"['/search']\"  routerLinkActive=\"active\">advanced</a>\n      <!--<button type=\"submit\" class=\"btn btn-primary\">advanced</button>-->\n    </form>\n</div>\n"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], ToolsSearch);
     return ToolsSearch;
 }());

@@ -3,7 +3,7 @@
  */
 import {Component, OnInit, Input, Output, EventEmitter} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
-import {VOSettings, VOService, VOPost} from "../models/vos";
+import {VOSettings, VOService, VOPost, VOSearch} from "../models/vos";
 import {PostEditService} from "../post-edit/posts-edit-service";
 @Component({
   selector:'posts-list',
@@ -18,10 +18,12 @@ import {PostEditService} from "../post-edit/posts-edit-service";
 })
 export class PostsList implements OnInit{
 
-  @Input()posts:VOPost[];
+  @Input() posts:VOPost[];
+  @Input() search:VOSearch;
   @Output() selected:EventEmitter<VOPost> = new EventEmitter<VOPost>();
 
-
+    allPosts:VOPost[];
+    filtered:VOPost[];
   myServices:VOService[];
 
   constructor(private myService:PostEditService){
@@ -29,8 +31,7 @@ export class PostsList implements OnInit{
   }
 
   ngOnInit():void{
-
-
+    this.allPosts = this.filtered = this.posts;
   }
 
 

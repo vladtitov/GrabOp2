@@ -21,6 +21,7 @@ var shared_module_1 = require("../shared/shared-module");
 var common_1 = require("@angular/common");
 var tools_service_1 = require("./tools-service");
 var router_1 = require("@angular/router");
+var forms_1 = require("@angular/forms");
 var ToolingModule = (function () {
     function ToolingModule() {
     }
@@ -28,6 +29,7 @@ var ToolingModule = (function () {
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
+                forms_1.FormsModule,
                 shared_module_1.SharedModule,
                 router_1.RouterModule
             ],

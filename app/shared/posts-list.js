@@ -12,6 +12,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by Vlad on 9/9/2016.
  */
 var core_1 = require("@angular/core");
+var vos_1 = require("../models/vos");
 var posts_edit_service_1 = require("../post-edit/posts-edit-service");
 var PostsList = (function () {
     function PostsList(myService) {
@@ -19,6 +20,7 @@ var PostsList = (function () {
         this.selected = new core_1.EventEmitter();
     }
     PostsList.prototype.ngOnInit = function () {
+        this.allPosts = this.filtered = this.posts;
     };
     PostsList.prototype.onPostCardClick = function (item) {
         this.selected.emit(item);
@@ -27,6 +29,10 @@ var PostsList = (function () {
         core_1.Input(), 
         __metadata('design:type', Array)
     ], PostsList.prototype, "posts", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', vos_1.VOSearch)
+    ], PostsList.prototype, "search", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
