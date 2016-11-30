@@ -6,8 +6,8 @@ import {Component, OnInit} from "@angular/core";
 import {VOAccount, VOUserExt} from "../models/vos";
 import {UserService} from "../myservices/user-service";
 @Component({
-  selector:'card-yours'
-  ,template:`
+    selector: 'card-yours'
+    , template: `
 <div>
  <!--Card Yours-->
 <div class="row">
@@ -28,25 +28,25 @@ import {UserService} from "../myservices/user-service";
 </div>
 `
 })
-export class CardYours implements OnInit{
-    user:VOUserExt  = new VOUserExt({});
-    myImage:string = '';
+export class CardYours implements OnInit {
+    user: VOUserExt = new VOUserExt({});
+    myImage: string = '';
 
-    constructor(private userService:UserService){
+    constructor(private userService: UserService) {
 
     }
 
-    ngOnInit():void {
+    ngOnInit(): void {
 
-      // this.loginService.myAccount$.subscribe(
-      this.userService.user$.subscribe(
-        user =>{
-          console.log(user);
-          this.user = user;
-          this.user.displayName = user.firstName + ' ' + user.lastName;
-          this.myImage = 'url('+this.user.profile_pic+')';
-        }
-      )
+        // this.loginService.myAccount$.subscribe(
+        this.userService.user$.subscribe(
+            user => {
+                // console.log(user);
+                this.user = user;
+                this.user.displayName = user.firstName + ' ' + user.lastName;
+                this.myImage = 'url(' + this.user.profile_pic + ')';
+            }
+        )
     }
 
 }

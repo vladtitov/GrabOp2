@@ -27,7 +27,7 @@ import {UserService} from "../myservices/user-service";
                 <tools-post></tools-post>
             </div>
             <div class="col-xs-1">
-                <tools-personal></tools-personal>  
+                <tools-personal></tools-personal>
             </div>
             <div class="col-xs-1 hidden-xs-down">
                 <tools-help></tools-help>
@@ -40,7 +40,7 @@ import {UserService} from "../myservices/user-service";
              </div>
              <div class="col-xs-1 text-xs-right">
                 <a class="btn btn-outline-danger" (click)="onLogout()">Logout</a>
-             </div>      
+             </div>
           </div>
     </div>
 </div>         

@@ -13,9 +13,9 @@ require('./rxjs-operators');
 var router_1 = require("@angular/router");
 var AppComponent = (function () {
     function AppComponent(router, aroute) {
+        // console.log('App main');
         this.router = router;
         this.aroute = aroute;
-        console.log('App main');
     }
     AppComponent = __decorate([
         core_1.Component({

@@ -20,7 +20,8 @@ var SearchService = (function () {
         this.postSub = new Subject_1.Subject();
         this.posts$ = this.postSub.asObservable();
         this.get_AllPosts();
-        console.log('SearchService');
+        console.warn('SearchService');
+        // console.log('SearchService');
         this.myServicesSubject = new Subject_1.Subject();
         this.myServices = this.myServicesSubject.asObservable();
         this.myServiceSubject = new Subject_1.Subject();
@@ -28,6 +29,13 @@ var SearchService = (function () {
         // this.loadServices();
     }
     SearchService.prototype.searchPosts = function (search) {
+        console.log('seach -> ', search);
+        if (!Array.isArray(this.allPosts)) {
+            // console.error('this.allPosts not array');
+            this.currentSearch = search;
+            this.get_AllPosts();
+            return;
+        }
         this.posts = this.allPosts.filter(function (post) {
             // title?      +         +      +
             // pattern, country, province, city
@@ -145,12 +153,16 @@ var SearchService = (function () {
         this.http.get(url)
             .map(function (res) {
             // console.log('res:Res', res.json().map(function(item){ return new VOPost(item)}));
-            return res.json().map(function (item) { return new vos_1.VOPost(item); });
+            return res.json().map(function (item) {
+                return new vos_1.VOPost(item);
+            });
         })
             .catch(this.handleError)
             .subscribe(function (res) {
             _this.posts = _this.allPosts = res;
             _this.postSub.next(res);
+            if (_this.currentSearch)
+                _this.searchPosts(_this.currentSearch);
             console.log('this.posts', _this.posts);
         });
     };
@@ -167,7 +179,9 @@ var SearchService = (function () {
         var url = vos_1.VOSettings.posts;
         return this.http.get(url)
             .map(function (res) {
-            return res.json().map(function (item) { return new vos_1.VOPost(item); });
+            return res.json().map(function (item) {
+                return new vos_1.VOPost(item);
+            });
         })
             .catch(this.handleError);
     };

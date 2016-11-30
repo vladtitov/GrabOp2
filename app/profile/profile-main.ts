@@ -8,9 +8,8 @@ import {UserService} from "../myservices/user-service";
 import {PostEditService} from "../post-edit/posts-edit-service";
 
 
-
 @Component({
-  template:`
+    template: `
 <div class="profile-main">
       <h1>Profile Main</h1>
       <profile-header [user]="user"></profile-header>
@@ -36,60 +35,66 @@ import {PostEditService} from "../post-edit/posts-edit-service";
 </div>
 `
 })
-export class ProfileMain implements OnInit{
+export class ProfileMain implements OnInit {
 
-  currentService:any;
-  user:VOUserExt;
-  myServices:any[];
-  currentServiceId:number;
-  listtype1:string;
-  listtype2:string;
-  need:VOPost[];
-  offer:VOPost[];
+    currentService: any;
+    user: VOUserExt;
+    myServices: any[];
+    currentServiceId: number;
+    listtype1: string;
+    listtype2: string;
+    need: VOPost[];
+    offer: VOPost[];
 
 
-  selectedPost:VOPost;
+    selectedPost: VOPost;
 
-  constructor(private aroute:ActivatedRoute, private router:Router, private userService:UserService, private postsService:PostEditService ){
+    constructor(private aroute: ActivatedRoute, private router: Router, private userService: UserService, private postsService: PostEditService) {
 
-  }
-
-  onPostEditClick():void{
-    if(this.selectedPost){
-      this.router.navigate(['post-edit/'+this.selectedPost.id+'/basic']);
     }
-  }
-  onPostSelect(item:VOPost){
-    if(this.selectedPost)this.selectedPost.selected= false;
-    item.selected= true;
-    this.selectedPost=item;
-  }
-  ngOnInit():void{
-    this.userService.user$.subscribe(
-      user=>this.user = user
-    );
-    this.aroute.params.subscribe(params=>{
-      let id:number = +params['id'];
-      if(isNaN(id)) return;
-     // this.currentServiceId = id;
-     /* this.myService.myAccount$.subscribe((profile)=>{
-        console.log(profile);
-      })*/
 
-    })
-    this.loadServices();
-  }
+    onPostEditClick(): void {
+        if (this.selectedPost) {
+            this.router.navigate(['post-edit/' + this.selectedPost.id + '/basic']);
+        }
+    }
 
-  loadServices():void{
-    console.log('load services');
+    onPostSelect(item: VOPost) {
+        if (this.selectedPost) this.selectedPost.selected = false;
+        item.selected = true;
+        this.selectedPost = item;
+    }
 
-  this.postsService.getPosts().subscribe(
-    (posts:VOPost[])=>{
+    ngOnInit(): void {
+        this.userService.user$.subscribe(
+            user => this.user = user
+        );
+        this.aroute.params.subscribe(params => {
+            let id: number = +params['id'];
+            if (isNaN(id)) return;
+            // this.currentServiceId = id;
+            /* this.myService.myAccount$.subscribe((profile)=>{
+             console.log(profile);
+             })*/
 
-      this.need = posts.filter(item=>{ return item.type=='need'});
-      this.offer = posts.filter(item=>{ return item.type=='offer'});
-        console.log(posts);
-      });
-  }
+        })
+        this.loadServices();
+    }
+
+    loadServices(): void {
+        console.log('load services');
+
+        this.postsService.getPosts().subscribe(
+            (posts: VOPost[]) => {
+
+                this.need = posts.filter(item => {
+                    return item.type == 'need'
+                });
+                this.offer = posts.filter(item => {
+                    return item.type == 'offer'
+                });
+                console.log(posts);
+            });
+    }
 
 }

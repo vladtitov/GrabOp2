@@ -1,7 +1,7 @@
 /**
  * Created by Vlad on 9/19/2016.
  */
-import {Component, Output, EventEmitter} from "@angular/core";
+import {Component, Output, EventEmitter, Input} from "@angular/core";
 import {FormGroup, FormBuilder, NgForm} from "@angular/forms";
 import {VOSearch} from "../models/vos";
 // import {PostEditService} from "../post-edit/posts-edit-service";
@@ -107,12 +107,17 @@ import {SearchService} from "../search/search-service";
 })
 export class FormSearchAdvanced{
 
+    // @Input() searchPost:VOSearch;
+
   search:VOSearch = new VOSearch({});
 
     @Output("search") searchOut = new EventEmitter();
 
   constructor( private postsService:SearchService){
-
+      // if('pattern' in this.searchPost){
+      //     console.log('pattern search', this.searchPost);
+      //     this.search.pattern = this.searchPost.pattern;
+      // }
   }
 
     onSearchClick(){

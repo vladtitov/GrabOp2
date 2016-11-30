@@ -1,191 +1,216 @@
 .posts-card {
-  float: left;
-}
-.selected{
-  border: 1px red solid;
+    float: left;
 }
 
-.card-256x320{
-  width: 270px;
-  height: 320px;
-  background-color: #fcfcfc;
-  margin: 10px;
-  float: left;;
+.selected {
+    border: 2px red solid;
 }
 
-.card-256x320 .mythumb{
-  position: relative;
-  width: 270px;
-  height: 320px;
-  box-shadow: grey 5px 5px 10px;
+.card-256x320 {
+    width: 270px;
+    height: 320px;
+    background-color: #fcfcfc;
+    margin: 10px;
+    float: left;;
+}
+
+.card-256x320 .mythumb {
+    position: relative;
+    width: 270px;
+    height: 320px;
+    box-shadow: grey 5px 5px 10px;
 
 }
 
-.card-256x320 .mythumb .props{
-  position: absolute;
-  bottom: 0;
-  padding: 3px 5px 0 9px;
-  height: 60px;
+.card-256x320 .mythumb .props {
+    position: absolute;
+    bottom: 0;
+    padding: 3px 5px 0 9px;
+    height: 60px;
 }
 
+.card-256x320 .myimage-container {
+    width: 260px;
+    height: 260px;
+    background-color: #EFF5FB; /*#e7f1ff;*/
 
-.card-256x320 .myimage-container{
-  width:260px;
-  height:260px;
-  background-color: #EFF5FB; /*#e7f1ff;*/
-
-  margin: 4px;
-  position: absolute;
+    margin: 4px;
+    position: absolute;
 }
 
-.card-256x320 .myimage-container .myimage{
-  max-width: 256px;
-  max-height: 256px;
-  border: 1px solid #c3c3c3;
-  position:absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right:0;
-  margin:auto;
+.card-256x320 .myimage-container .myimage {
+    max-width: 256px;
+    max-height: 256px;
+    border: 1px solid #c3c3c3;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 /*          --------------------          end card 256          --------------------          */
-
 
 /*          --------------------          card 256          --------------------          */
-.card-256{
-  width: 270px;
-  height: 320px;
-  background-color: #fcfcfc;
-  margin: 10px;
+.card-256 {
+    width: 270px;
+    height: 320px;
+    background-color: #fcfcfc;
+    margin: 8px;
 }
 
-.card-256 .thumb-256{
-  position: relative;
-  width: 270px;
-  height: 320px;
-  box-shadow: grey 5px 5px 10px;
+.card-256 .thumb-256 {
+    position: relative;
+    width: 270px;
+    height: 320px;
+    box-shadow: grey 5px 5px 10px;
 
 }
 
-.card-256 .thumb-256 .props{
-  position: absolute;
-  bottom: 0;
-  padding: 3px 5px 0 9px;
-  height: 60px;
+.card-256 .thumb-256 .props {
+    position: absolute;
+    bottom: 0;
+    padding: 3px 5px 0 9px;
+    height: 60px;
 }
 
-
-.card-256 .image-container-256{
-  width:260px;
-  height:260px;
-  background-color: #EFF5FB; /*#e7f1ff;*/
-  margin: 4px;
+.card-256 .image-container-256 {
+    width: 260px;
+    height: 150px;
+    background-color: #EFF5FB; /*#e7f1ff;*/
+    margin: 4px;
+    position: relative;
 }
 
-.card-256 .image-container-256 .image-256{
-  max-width: 256px;
-  max-height: 256px;
-  border: 1px solid #c3c3c3;
-  position:absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right:0;
-  margin:auto;
+.card-256 .image-container-256 .image-256 {
+    max-width: 256px;
+    max-height: 150px;
+    border: 1px solid #c3c3c3;
+    z-index: 5;
 }
-.deviceText-256{
-  width: 256px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+.card-256 .image-container-256 .accountIMG {
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
 }
+
+.deviceText-256 {
+    width: 256px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 13px;
+    margin-left: 6px;
+    margin-bottom: 7px;
+}
+
+.num {
+    background-color: #CE2022;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+}
+
+.num > span {
+    color: #ffffff;
+}
+
 /*          --------------------          end card 256          --------------------          */
 
-
-
 /*          --------------------          card-128          --------------------          */
-.card-128{
-  width: 140px;
-  height: 180px;
-  background-color: #fcfcfc;
-  margin: 10px;
+.card-128 {
+    width: 140px;
+    height: 180px;
+    background-color: #fcfcfc;
+    margin: 8px;
 }
-.card-128 .thumb-128{
-  position: relative;
-  width: 140px;
-  height: 180px;
-  box-shadow: grey 5px 5px 10px;
-  margin-right: 10px;
-}
-.card-128 .image-container-128{
-  width:132px;
-  height:132px;
-  background-color: #EFF5FB; /*#e7f1ff;*/
 
-  margin: 3px;
-  position: absolute;
+.card-128 .thumb-128 {
+    position: relative;
+    width: 140px;
+    height: 180px;
+    box-shadow: grey 5px 5px 10px;
+    margin-right: 10px;
 }
-.card-128 .image-container-128 .image-128{
-  max-width: 128px;
-  max-height: 128px;
-  border: 1px solid #c3c3c3;
-  position:absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right:0;
-  margin:auto;
+
+.card-128 .image-container-128 {
+    width: 132px;
+    height: 90px;
+    background-color: #EFF5FB; /*#e7f1ff;*/
+
+    margin: 3px;
+    /*position: absolute;*/
 }
-.deviceText-128{
-  width: 128px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+.card-128 .image-container-128 .image-128 {
+    max-width: 128px;
+    max-height: 128px;
+    border: 1px solid #c3c3c3;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
+
+.deviceText-128 {
+    width: 128px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /*          --------------------          end card-128          --------------------          */
 
 /*          --------------------          card-128-2          --------------------          */
-.thumb-128-2{
-  position: relative;
-  width: 132px;
-  height: 132px;
-  box-shadow: grey 5px 5px 10px;
-  margin-right: 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.thumb-128-2 {
+    position: relative;
+    width: 132px;
+    height: 132px;
+    box-shadow: grey 5px 5px 10px;
+    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-.thumb-128-2 > .image-container-128-2{
-  width:132px;
-  height:132px;
-  background-color: #EFF5FB; /*#e7f1ff;*/
-  /*position: absolute;*/
-}
-.thumb-128-2 > .image-container-128-2 > img{
-  max-width: 128px;
-  max-height: 128px;
-  /*border: 1px solid #c3c3c3;*/
-  position:absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right:0;
-  margin:auto;
-}
-.thumb-128-2 > .image-container-128-2 > .thumb-label{
-  position: absolute;
-  bottom: 0;
-  color: black;
-  background-color: #ffffff;
 
-  display: inline;
-  padding: .2em .6em .3em;
-  font-size: 75%;
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: .25em;
+.thumb-128-2 > .image-container-128-2 {
+    width: 132px;
+    height: 132px;
+    background-color: #EFF5FB; /*#e7f1ff;*/
+    /*position: absolute;*/
+}
+
+.thumb-128-2 > .image-container-128-2 > img {
+    max-width: 128px;
+    max-height: 128px;
+    /*border: 1px solid #c3c3c3;*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.thumb-128-2 > .image-container-128-2 > .thumb-label {
+    position: absolute;
+    bottom: 0;
+    color: black;
+    background-color: #ffffff;
+
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
 }

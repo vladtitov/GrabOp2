@@ -21,7 +21,11 @@ var SearchMain = (function () {
         this.postsService = postsService;
         this.searchingPost = new vos_1.VOSearch({});
         route.params.subscribe(function (params) {
-            _this.searchingPost.pattern = params['pattern'];
+            if ('pattern' in params && params['pattern'] && params['pattern'] != "") {
+                _this.searchingPost = new vos_1.VOSearch({ pattern: params['pattern'] });
+                // this.searchingPost.pattern = params['pattern'];
+                console.log('pattern main', _this.searchingPost);
+            }
         });
     }
     SearchMain.prototype.onSearch = function (search) {
@@ -31,7 +35,7 @@ var SearchMain = (function () {
     SearchMain = __decorate([
         core_1.Component({
             template: "\n    <h2>Search Main</h2>\n    <div class=\"container\">\n        <div class=\"card-block\">\n            <div class=\"row\">\n                <div class=\"col-xs-4 br\">\n                    <form-search-advanced (search)=\"onSearch($event)\"></form-search-advanced>\n                </div>\n                <div class=\"col-xs-8\">\n                    <search-result  [search]=\"searchingPost\"></search-result>\n                </div>\n            </div>\n        </div>\n    </div>\n        \n ",
-            styles: ["\n        .br{\n            border-right: solid 2px #c1c1c1;\n        }\n"]
+            styles: ["\n\n"]
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, search_service_1.SearchService])
     ], SearchMain);

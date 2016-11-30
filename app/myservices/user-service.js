@@ -20,7 +20,7 @@ var UserService = (function () {
         this.router = router;
         this.userSub = new BehaviorSubject_1.BehaviorSubject(new vos_1.VOUserExt({}));
         this.user$ = this.userSub.asObservable();
-        console.log('person service init');
+        // console.log('person service init');
         this.getUser();
     }
     /* get myAccount$():Observable<VOUserExt>{

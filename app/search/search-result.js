@@ -1,9 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,24 +15,40 @@ var core_1 = require("@angular/core");
 // import {PostEditService} from "../post-edit/posts-edit-service";
 var vos_1 = require("../models/vos");
 var search_service_1 = require("./search-service");
-var SearchResult = (function (_super) {
-    __extends(SearchResult, _super);
+var SearchResult = (function () {
     function SearchResult(postsService) {
-        _super.call(this);
         this.postsService = postsService;
+        console.log('constructor search-result');
+        // this.onOfferings = true;
+        // console.log('posts$ res:',postsService.posts$);
+        // postsService.posts$.subscribe(posts=>{
+        //     console.log('posts res:',posts);
+        //     this.need = posts.filter(item=>{ return item.type=='need'});
+        //     this.offer = posts.filter(item=>{ return item.type=='offer'});
+        //     this.numberPosts = posts.length;
+        //     this.numberNeeds = this.need.length;
+        //     this.numberOffers = this.offer.length;
+        // });
     }
     SearchResult.prototype.ngOnInit = function () {
         var _this = this;
+        console.log('ngOnInit search-result');
+        if ('pattern' in this.search) {
+            console.log('pattern search', this.search);
+            this.postsService.searchPosts(this.search);
+        }
+        else {
+            this.postsService.get_AllPosts();
+        }
         this.onOfferings = true;
+        console.log('posts$ res:', this.postsService.posts$);
         this.postsService.posts$.subscribe(function (posts) {
+            console.log('posts res:', posts);
             _this.need = posts.filter(function (item) { return item.type == 'need'; });
             _this.offer = posts.filter(function (item) { return item.type == 'offer'; });
             _this.numberPosts = posts.length;
             _this.numberNeeds = _this.need.length;
             _this.numberOffers = _this.offer.length;
-            if ('pattern' in _this.search) {
-                console.log('this.search', _this.search);
-            }
         });
         // this.postsService.getAllPosts().subscribe(
         //     (posts:VOPost[])=>{
@@ -92,6 +103,6 @@ var SearchResult = (function (_super) {
         __metadata('design:paramtypes', [search_service_1.SearchService])
     ], SearchResult);
     return SearchResult;
-}(core_1.OnInit));
+}());
 exports.SearchResult = SearchResult;
 //# sourceMappingURL=search-result.js.map

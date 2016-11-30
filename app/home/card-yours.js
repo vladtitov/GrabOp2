@@ -24,7 +24,7 @@ var CardYours = (function () {
         var _this = this;
         // this.loginService.myAccount$.subscribe(
         this.userService.user$.subscribe(function (user) {
-            console.log(user);
+            // console.log(user);
             _this.user = user;
             _this.user.displayName = user.firstName + ' ' + user.lastName;
             _this.myImage = 'url(' + _this.user.profile_pic + ')';

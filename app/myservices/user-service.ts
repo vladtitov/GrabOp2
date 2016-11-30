@@ -24,7 +24,7 @@ export class UserService {
 
     this.userSub = new BehaviorSubject<VOUserExt>(new VOUserExt({}));
     this.user$= this.userSub.asObservable();
-    console.log('person service init');
+    // console.log('person service init');
     this.getUser();
 
   }

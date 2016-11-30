@@ -27,7 +27,7 @@ export class AppComponent {
   isLogin:boolean;
 
   constructor(private router:Router, private aroute:ActivatedRoute){
-    console.log('App main');
+    // console.log('App main');
 
   }
 /*

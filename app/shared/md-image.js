@@ -15,13 +15,15 @@ var MyMdImage = (function () {
         this.renderer = renderer;
         this.shape = 'round';
         this.size = '40x40';
+        this.userClass = '';
     }
     MyMdImage.prototype.ngOnInit = function () {
-        this.classNames = 's' + this.size + ' ' + this.shape;
+        this.classNames = 's' + this.size + ' ' + this.shape + ' ' + this.userClass;
+        console.log(' my-md-image classNames', this.classNames);
         // this.renderer.setElementStyle(this.el.nativeElement,'bacground-image',this.url);
         // this.renderer.setElementClass(this.el.nativeElement,this.size,false);
         // this.renderer.setElementClass(this.el.nativeElement,this.shape,true);
-        console.log(this.classNames);
+        // console.log(this.classNames )
     };
     __decorate([
         core_1.Input("my-md-image"), 
@@ -35,6 +37,10 @@ var MyMdImage = (function () {
         core_1.Input("size"), 
         __metadata('design:type', String)
     ], MyMdImage.prototype, "size", void 0);
+    __decorate([
+        core_1.Input("userClass"), 
+        __metadata('design:type', String)
+    ], MyMdImage.prototype, "userClass", void 0);
     MyMdImage = __decorate([
         core_1.Directive({
             selector: '[my-md-image]',

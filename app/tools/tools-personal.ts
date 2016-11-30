@@ -8,31 +8,31 @@ import {UserService} from "../myservices/user-service";
 
 
 @Component({
-  selector:'tools-personal'
-  ,template:`
+    selector: 'tools-personal'
+    , template: `
 <div>
     <!--<div class="s40x40 round" [style.background-image] ="myImage"> </div>   -->
       <div [my-md-image]="myImage"> </div>
 </div>
 `
 })
-export class ToolsPersonal implements OnInit{
+export class ToolsPersonal implements OnInit {
 // myImage:string = 'url(img/img-girl.jpg)';
-myImage:string = '';
-  private myStyle:any;
+    myImage: string = '';
+    private myStyle: any;
 
-    private user:VOUserExt;
+    private user: VOUserExt;
 
-    constructor(private userService:UserService){
+    constructor(private userService: UserService) {
 
     }
 
-    ngOnInit():void{
+    ngOnInit(): void {
         //  this.profileService.myAccount$.subscribe(profile=>this.myImage = profile.profile_pic);
         this.userService.user$.subscribe(
-            user=> {
+            user => {
                 this.user = user;
-                this.myImage = 'url('+this.user.profile_pic+')';
+                this.myImage = 'url(' + this.user.profile_pic + ')';
             }
         );
     }

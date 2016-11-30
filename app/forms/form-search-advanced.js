@@ -18,8 +18,13 @@ var search_service_1 = require("../search/search-service");
 var FormSearchAdvanced = (function () {
     function FormSearchAdvanced(postsService) {
         this.postsService = postsService;
+        // @Input() searchPost:VOSearch;
         this.search = new vos_1.VOSearch({});
         this.searchOut = new core_1.EventEmitter();
+        // if('pattern' in this.searchPost){
+        //     console.log('pattern search', this.searchPost);
+        //     this.search.pattern = this.searchPost.pattern;
+        // }
     }
     FormSearchAdvanced.prototype.onSearchClick = function () {
         var searchPOst = new vos_1.VOSearch({});

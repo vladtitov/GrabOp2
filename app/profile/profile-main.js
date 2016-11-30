@@ -42,7 +42,7 @@ var ProfileMain = (function () {
                 return;
             // this.currentServiceId = id;
             /* this.myService.myAccount$.subscribe((profile)=>{
-               console.log(profile);
+             console.log(profile);
              })*/
         });
         this.loadServices();
@@ -51,8 +51,12 @@ var ProfileMain = (function () {
         var _this = this;
         console.log('load services');
         this.postsService.getPosts().subscribe(function (posts) {
-            _this.need = posts.filter(function (item) { return item.type == 'need'; });
-            _this.offer = posts.filter(function (item) { return item.type == 'offer'; });
+            _this.need = posts.filter(function (item) {
+                return item.type == 'need';
+            });
+            _this.offer = posts.filter(function (item) {
+                return item.type == 'offer';
+            });
             console.log(posts);
         });
     };

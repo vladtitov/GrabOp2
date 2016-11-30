@@ -70,3 +70,10 @@ form.ng-touched.ng-invalid {
     height: 64px;
     margin: 5px;
 }
+
+.br{
+    border-right: solid 2px #c1c1c1;
+}
+.bl{
+    border-left: solid 2px #c1c1c1;
+}

@@ -45,7 +45,7 @@ import {SearchService} from "./search-service";
       </div>
  `
 })
-export class SearchResult extends OnInit{
+export class SearchResult implements OnInit{
 
     // @Input() posts:VOSearch;
     @Input() search:VOSearch;
@@ -63,21 +63,37 @@ export class SearchResult extends OnInit{
     numberOffers:number;
 
     constructor(private postsService:SearchService){
-        super();
+        console.log('constructor search-result');
+        // this.onOfferings = true;
+        // console.log('posts$ res:',postsService.posts$);
+        // postsService.posts$.subscribe(posts=>{
+        //     console.log('posts res:',posts);
+        //     this.need = posts.filter(item=>{ return item.type=='need'});
+        //     this.offer = posts.filter(item=>{ return item.type=='offer'});
+        //     this.numberPosts = posts.length;
+        //     this.numberNeeds = this.need.length;
+        //     this.numberOffers = this.offer.length;
+        // });
     }
 
     ngOnInit(){
+        console.log('ngOnInit search-result');
+        if('pattern' in this.search){
+            console.log('pattern search', this.search);
+            this.postsService.searchPosts(this.search);
+        } else {
+            this.postsService.get_AllPosts();
+        }
+
         this.onOfferings = true;
+        console.log('posts$ res:',this.postsService.posts$);
         this.postsService.posts$.subscribe(posts=>{
+            console.log('posts res:',posts);
             this.need = posts.filter(item=>{ return item.type=='need'});
             this.offer = posts.filter(item=>{ return item.type=='offer'});
             this.numberPosts = posts.length;
             this.numberNeeds = this.need.length;
             this.numberOffers = this.offer.length;
-            if('pattern' in this.search){
-                console.log('this.search', this.search);
-                // this.postsService.searchPosts(this.search);
-            }
         });
 
         // this.postsService.getAllPosts().subscribe(

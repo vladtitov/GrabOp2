@@ -20,7 +20,7 @@ var PostEditService = (function () {
         this.postSub = new Subject_1.Subject();
         this.posts$ = this.postSub.asObservable();
         this.get_AllPosts();
-        console.log('PostsEditService');
+        // console.log('PostsEditService');
         this.myServicesSubject = new Subject_1.Subject();
         this.myServices = this.myServicesSubject.asObservable();
         this.myServiceSubject = new Subject_1.Subject();
@@ -31,7 +31,11 @@ var PostEditService = (function () {
         var _this = this;
         var url = vos_1.VOSettings.server + '/profiles/' + vos_1.VOSettings.user.id;
         this.http.get(url)
-            .map(function (res) { return res.json().map(function (item) { return new vos_1.VOService(item); }); })
+            .map(function (res) {
+            return res.json().map(function (item) {
+                return new vos_1.VOService(item);
+            });
+        })
             .catch(this.handleError).subscribe(function (res) {
             _this.__posts = res;
             _this.myServicesSubject.next(res);
@@ -64,13 +68,15 @@ var PostEditService = (function () {
         this.http.get(url)
             .map(function (res) {
             // console.log('res:Res', res.json().map(function(item){ return new VOPost(item)}));
-            return res.json().map(function (item) { return new vos_1.VOPost(item); });
+            return res.json().map(function (item) {
+                return new vos_1.VOPost(item);
+            });
         })
             .catch(this.handleError)
             .subscribe(function (res) {
             _this.posts = res;
             _this.postSub.next(res);
-            console.log('this.posts', _this.posts);
+            // console.log('this.posts', this.posts);
         });
     };
     // get_AllPosts():Observable<VOPost[]>{
@@ -86,7 +92,9 @@ var PostEditService = (function () {
         var url = vos_1.VOSettings.posts;
         return this.http.get(url)
             .map(function (res) {
-            return res.json().map(function (item) { return new vos_1.VOPost(item); });
+            return res.json().map(function (item) {
+                return new vos_1.VOPost(item);
+            });
         })
             .catch(this.handleError);
     };
@@ -94,7 +102,9 @@ var PostEditService = (function () {
         var url = vos_1.VOSettings.server + 'posts';
         return this.http.get(url)
             .map(function (res) {
-            return res.json().map(function (item) { return new vos_1.VOPost(item); });
+            return res.json().map(function (item) {
+                return new vos_1.VOPost(item);
+            });
         })
             .catch(this.handleError);
     };
@@ -102,7 +112,9 @@ var PostEditService = (function () {
         console.log('get post by id' + id);
         var url = vos_1.VOSettings.server + '/post/' + id;
         return this.http.get(url)
-            .map(function (res) { return new vos_1.VOPost(res.json()); })
+            .map(function (res) {
+            return new vos_1.VOPost(res.json());
+        })
             .catch(this.handleError);
     };
     PostEditService.prototype.deleteAttachment = function (psot_id, id) {
@@ -114,7 +126,9 @@ var PostEditService = (function () {
         var url = vos_1.VOSettings.server + '/post/' + post_id + '/attachments';
         return this.http.get(url).toPromise()
             .then(function (res) {
-            return res.json().map(function (item) { return new vos_1.VOImage(item); });
+            return res.json().map(function (item) {
+                return new vos_1.VOImage(item);
+            });
         });
     };
     PostEditService.prototype.saveAttachment = function (data, post_id) {
@@ -130,13 +144,17 @@ var PostEditService = (function () {
         var url = vos_1.VOSettings.server + '/posts-categories';
         return this.http.get(url).toPromise()
             .then(function (res) {
-            return res.json().map(function (item) { return new vos_1.VOCategory(item); });
+            return res.json().map(function (item) {
+                return new vos_1.VOCategory(item);
+            });
         });
     };
     PostEditService.prototype._selectById = function () {
         var id = this.selectedId;
         if (this.__posts) {
-            var serv = this.__posts.filter(function (item) { return item.id === id; });
+            var serv = this.__posts.filter(function (item) {
+                return item.id === id;
+            });
             if (serv.length)
                 this.myServiceSubject.next(serv[0]);
         }

@@ -23,9 +23,7 @@ import {SearchService} from "./search-service";
         
  `
 ,styles:[`
-        .br{
-            border-right: solid 2px #c1c1c1;
-        }
+
 `]
 })
 export class SearchMain {
@@ -34,7 +32,11 @@ export class SearchMain {
     constructor(route:ActivatedRoute,private postsService:SearchService){
         route.params.subscribe(
             params => {
-                this.searchingPost.pattern = params['pattern'];
+                if('pattern' in params && params['pattern'] && params['pattern'] !="") {
+                    this.searchingPost = new VOSearch({pattern:params['pattern']});
+                    // this.searchingPost.pattern = params['pattern'];
+                    console.log('pattern main', this.searchingPost);
+                }
             }
         );
     }
