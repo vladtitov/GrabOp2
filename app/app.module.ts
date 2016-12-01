@@ -21,6 +21,7 @@ import {ToLogin} from "./login/to-login";
 import {HowItWorks} from "./pages/how-it-works";
 import {TermsOfUse} from "./pages/terms-of-use";
 import {ContactUs} from "./pages/contact-us";
+import {Help} from "./pages/help";
 import SearchModule from "./search/search-module";
 import {SearchMain} from "./search/search-main";
 import {UploadService} from "./myservices/upload-service";
@@ -49,6 +50,7 @@ export const routeConfig=[
   // ,{path:'settings', component:MySettings}
   ,{path:'how-it-works', component:HowItWorks}
   ,{path:'terms-of-use', component:TermsOfUse}
+  ,{path:'help', component:Help}
   ,{path:'search', component:SearchMain}
   ,{path:'contact-us', component:ContactUs}
   ,{path:'profile',loadChildren:'app/profile/profile-module'}
@@ -80,6 +82,7 @@ export const routeConfig=[
     ,HowItWorks
     ,TermsOfUse
     ,ContactUs
+    ,Help
     ,MySettings
   ],
 

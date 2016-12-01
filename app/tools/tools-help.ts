@@ -6,7 +6,7 @@ import {Component} from "@angular/core";
   selector:'tools-help'
   ,template:`
 <div>
-            Help
+        <a class="btn" [routerLink]="['/help']">Help</a>
 </div>
 `
 })

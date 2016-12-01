@@ -9,20 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by Vlad on 9/6/2016.
+ * Created by Vlad on 9/17/2016.
  */
 var core_1 = require("@angular/core");
-var ToolsHelp = (function () {
-    function ToolsHelp() {
+var Help = (function () {
+    function Help() {
     }
-    ToolsHelp = __decorate([
+    Help = __decorate([
         core_1.Component({
-            selector: 'tools-help',
-            template: "\n<div>\n        <a class=\"btn\" [routerLink]=\"['/help']\">Help</a>\n</div>\n"
+            template: "\n<div>\n<h1>Help</h1>\n</div>\n"
         }), 
         __metadata('design:paramtypes', [])
-    ], ToolsHelp);
-    return ToolsHelp;
+    ], Help);
+    return Help;
 }());
-exports.ToolsHelp = ToolsHelp;
-//# sourceMappingURL=tools-help.js.map
+exports.Help = Help;
+//# sourceMappingURL=help.js.map

@@ -12,13 +12,18 @@ import {UserService} from "../myservices/user-service";
     , template: `
 <div>
     <!--<div class="s40x40 round" [style.background-image] ="myImage"> </div>   -->
-      <div [my-md-image]="myImage"> </div>
+    <div class="row">
+        <div class="col-sm-4"><div [my-md-image]="myImage"> </div></div>
+        <!--<div [userClass]="'col-sm-2'" [my-md-image]="myImage"> </div>-->
+        <div class="col-sm-8"><h5>{{name}}</h5></div>
+    </div>
 </div>
 `
 })
 export class ToolsPersonal implements OnInit {
 // myImage:string = 'url(img/img-girl.jpg)';
     myImage: string = '';
+    name: string = '';
     private myStyle: any;
 
     private user: VOUserExt;
@@ -33,6 +38,7 @@ export class ToolsPersonal implements OnInit {
             user => {
                 this.user = user;
                 this.myImage = 'url(' + this.user.profile_pic + ')';
+                this.name = user.firstName + ' ' + user.lastName;
             }
         );
     }

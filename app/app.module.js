@@ -26,6 +26,7 @@ var to_login_1 = require("./login/to-login");
 var how_it_works_1 = require("./pages/how-it-works");
 var terms_of_use_1 = require("./pages/terms-of-use");
 var contact_us_1 = require("./pages/contact-us");
+var help_1 = require("./pages/help");
 var search_module_1 = require("./search/search-module");
 var search_main_1 = require("./search/search-main");
 var upload_service_1 = require("./myservices/upload-service");
@@ -46,6 +47,7 @@ exports.routeConfig = [
     { path: 'settings', loadChildren: 'app/mysettings/mysettings-module' },
     { path: 'how-it-works', component: how_it_works_1.HowItWorks },
     { path: 'terms-of-use', component: terms_of_use_1.TermsOfUse },
+    { path: 'help', component: help_1.Help },
     { path: 'search', component: search_main_1.SearchMain },
     { path: 'contact-us', component: contact_us_1.ContactUs },
     { path: 'profile', loadChildren: 'app/profile/profile-module' },
@@ -77,6 +79,7 @@ var AppModule = (function () {
                 how_it_works_1.HowItWorks,
                 terms_of_use_1.TermsOfUse,
                 contact_us_1.ContactUs,
+                help_1.Help,
                 my_settings_1.MySettings
             ],
             bootstrap: [app_component_1.AppComponent],

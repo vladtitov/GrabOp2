@@ -18,6 +18,7 @@ var ToolsPersonal = (function () {
         this.userService = userService;
         // myImage:string = 'url(img/img-girl.jpg)';
         this.myImage = '';
+        this.name = '';
     }
     ToolsPersonal.prototype.ngOnInit = function () {
         var _this = this;
@@ -25,12 +26,13 @@ var ToolsPersonal = (function () {
         this.userService.user$.subscribe(function (user) {
             _this.user = user;
             _this.myImage = 'url(' + _this.user.profile_pic + ')';
+            _this.name = user.firstName + ' ' + user.lastName;
         });
     };
     ToolsPersonal = __decorate([
         core_1.Component({
             selector: 'tools-personal',
-            template: "\n<div>\n    <!--<div class=\"s40x40 round\" [style.background-image] =\"myImage\"> </div>   -->\n      <div [my-md-image]=\"myImage\"> </div>\n</div>\n"
+            template: "\n<div>\n    <!--<div class=\"s40x40 round\" [style.background-image] =\"myImage\"> </div>   -->\n    <div class=\"row\">\n        <div class=\"col-sm-4\"><div [my-md-image]=\"myImage\"> </div></div>\n        <!--<div [userClass]=\"'col-sm-2'\" [my-md-image]=\"myImage\"> </div>-->\n        <div class=\"col-sm-8\"><h5>{{name}}</h5></div>\n    </div>\n</div>\n"
         }), 
         __metadata('design:paramtypes', [user_service_1.UserService])
     ], ToolsPersonal);

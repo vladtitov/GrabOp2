@@ -40,7 +40,7 @@ import {PostEditService} from "./posts-edit-service";
                     <label class="custom-control custom-checkbox col-sm-offset-2">
                       <input type="checkbox" class="custom-control-input" [(ngModel)]="model.internship" name="internship">
                       <span class="custom-control-indicator"></span>
-                      <span class="custom-control-description">Intership</span>
+                      <span class="custom-control-description">Internship</span>
                     </label>
                   </div>
                   

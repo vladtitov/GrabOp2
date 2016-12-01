@@ -6,7 +6,7 @@ import {Component} from "@angular/core";
   selector:'tools-notifications'
   ,template:`
 <div>
-         <span class="fa fa-bell"></span>
+         <span class="fa fa-bell btn"></span>
 </div>
 `
 })

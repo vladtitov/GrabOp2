@@ -19,6 +19,7 @@ import {MySettings} from "./mysettings/my-settings";
 import {HowItWorks} from "./pages/how-it-works";
 import {TermsOfUse} from "./pages/terms-of-use";
 import {ContactUs} from "./pages/contact-us";
+import {Help} from "./pages/help";
 import SearchModule from "./search/search-module";
 import {SearchMain} from "./search/search-main";
 import {UploadService} from "./myservices/upload-service";
@@ -65,6 +66,7 @@ export const routeConfig=[
     ,MySettings
     ,HowItWorks
     ,TermsOfUse
+    ,Help
     ,ContactUs
   ],
 

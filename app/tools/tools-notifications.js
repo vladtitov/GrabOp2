@@ -18,7 +18,7 @@ var ToolsNotifications = (function () {
     ToolsNotifications = __decorate([
         core_1.Component({
             selector: 'tools-notifications',
-            template: "\n<div>\n         <span class=\"fa fa-bell\"></span>\n</div>\n"
+            template: "\n<div>\n         <span class=\"fa fa-bell btn\"></span>\n</div>\n"
         }), 
         __metadata('design:paramtypes', [])
     ], ToolsNotifications);

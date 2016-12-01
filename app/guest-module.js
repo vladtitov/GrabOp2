@@ -25,6 +25,7 @@ var my_settings_1 = require("./mysettings/my-settings");
 var how_it_works_1 = require("./pages/how-it-works");
 var terms_of_use_1 = require("./pages/terms-of-use");
 var contact_us_1 = require("./pages/contact-us");
+var help_1 = require("./pages/help");
 var search_module_1 = require("./search/search-module");
 var upload_service_1 = require("./myservices/upload-service");
 var guest_component_1 = require("./guest-component");
@@ -64,6 +65,7 @@ var GuestModule = (function () {
                 my_settings_1.MySettings,
                 how_it_works_1.HowItWorks,
                 terms_of_use_1.TermsOfUse,
+                help_1.Help,
                 contact_us_1.ContactUs
             ],
             bootstrap: [guest_component_1.GuestComponent],

@@ -1,0 +1,14 @@
+{"connection_requests":false,
+  "new_messages":false,
+  "alliance_notifications":false,
+  "task_notifications":false,
+  "service_notifications":false,
+
+  "phone_number":false,
+  "email_addres":false,
+  "connections":false,
+  "profile_views_count":false,
+  "service_views_count":false,
+  "total_number_people":false,
+  "total_number_members":false,
+  "total_sales":false}

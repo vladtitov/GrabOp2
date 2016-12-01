@@ -12,15 +12,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by Vlad on 9/6/2016.
  */
 var core_1 = require("@angular/core");
+var user_service_1 = require("../myservices/user-service");
 var ToolsMenu = (function () {
-    function ToolsMenu() {
+    function ToolsMenu(accountService) {
+        this.accountService = accountService;
     }
+    ToolsMenu.prototype.onLogout = function () {
+        this.accountService.logout({ lastURL: 'none' }).subscribe(function (res) {
+        });
+    };
+    ToolsMenu.prototype.ngOnInit = function () { };
+    ToolsMenu.prototype.onDocClick = function (evt) {
+        if (this.isVisible)
+            this.isVisible = false;
+    };
+    ToolsMenu.prototype.onClick = function (evt) {
+        var _this = this;
+        if (!this.isVisible)
+            setTimeout(function () {
+                _this.isVisible = true;
+            }, 50);
+    };
     ToolsMenu = __decorate([
         core_1.Component({
             selector: 'tools-menu',
-            template: "\n<div>\n         <span class=\"fa fa-bars\"></span>\n</div>\n"
+            template: "\n<div>\n        <!--<span class=\"fa fa-bars btn\"></span>-->\n        <div class=\"dropdown\" [class.open]=\"isVisible\">\n            <a class=\" fa fa-bars btn\" (click)=\"onClick()\"></a>     \n            <div class=\"dropdown-menu\">\n                <a class=\"dropdown-item\" [routerLink]=\"['/settings']\" routerLinkActive=\"active\">Settings</a>\n                <a class=\"dropdown-item\" [routerLink]=\"['/how-it-works']\" routerLinkActive=\"active\">How it works</a> \n                <a class=\"dropdown-item\" [routerLink]=\"['/contact-us']\" routerLinkActive=\"active\">Contact us</a>\n                <a class=\"dropdown-item\" [routerLink]=\"['/terms-of-use']\" routerLinkActive=\"active\">Terms of Use</a>\n                <div class=\"dropdown-divider\"></div>\n                <a class=\"dropdown-item\" (click)=\"onLogout()\">Sign out</a>             \n            </div>\n        </div>\n</div>\n",
+            host: {
+                '(document:click)': 'onDocClick($event)',
+            }
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [user_service_1.UserService])
     ], ToolsMenu);
     return ToolsMenu;
 }());
