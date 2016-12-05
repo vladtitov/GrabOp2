@@ -19,7 +19,7 @@ var SearchService = (function () {
         this.http = http;
         this.postSub = new Subject_1.Subject();
         this.posts$ = this.postSub.asObservable();
-        this.get_AllPosts();
+        // this.get_AllPosts();
         console.warn('SearchService');
         // console.log('SearchService');
         this.myServicesSubject = new Subject_1.Subject();
@@ -30,12 +30,12 @@ var SearchService = (function () {
     }
     SearchService.prototype.searchPosts = function (search) {
         console.log('seach -> ', search);
-        if (!Array.isArray(this.allPosts)) {
-            // console.error('this.allPosts not array');
-            this.currentSearch = search;
-            this.get_AllPosts();
-            return;
-        }
+        // if(!Array.isArray(this.allPosts)){
+        //     // console.error('this.allPosts not array');
+        //     this.currentSearch = search;
+        //     this.get_AllPosts();
+        //     return;
+        // }
         this.posts = this.allPosts.filter(function (post) {
             // title?      +         +      +
             // pattern, country, province, city
@@ -161,8 +161,7 @@ var SearchService = (function () {
             .subscribe(function (res) {
             _this.posts = _this.allPosts = res;
             _this.postSub.next(res);
-            if (_this.currentSearch)
-                _this.searchPosts(_this.currentSearch);
+            // if(this.currentSearch) this.searchPosts(this.currentSearch);
             console.log('this.posts', _this.posts);
         });
     };

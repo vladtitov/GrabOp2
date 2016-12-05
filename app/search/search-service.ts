@@ -28,7 +28,7 @@ export class SearchService {
     constructor(private http: Http) {
         this.postSub = new Subject<VOPost[]>();
         this.posts$ = this.postSub.asObservable();
-        this.get_AllPosts();
+        // this.get_AllPosts();
 
         console.warn('SearchService');
         // console.log('SearchService');
@@ -42,12 +42,12 @@ export class SearchService {
 
     searchPosts(search: VOSearch) {
         console.log('seach -> ', search);
-        if(!Array.isArray(this.allPosts)){
-            // console.error('this.allPosts not array');
-            this.currentSearch = search;
-            this.get_AllPosts();
-            return;
-        }
+        // if(!Array.isArray(this.allPosts)){
+        //     // console.error('this.allPosts not array');
+        //     this.currentSearch = search;
+        //     this.get_AllPosts();
+        //     return;
+        // }
         this.posts = this.allPosts.filter(function (post: VOPost) {
             // title?      +         +      +
             // pattern, country, province, city
@@ -153,7 +153,7 @@ export class SearchService {
             .subscribe((res: any) => {
                 this.posts = this.allPosts = res;
                 this.postSub.next(res);
-                if(this.currentSearch) this.searchPosts(this.currentSearch);
+                // if(this.currentSearch) this.searchPosts(this.currentSearch);
                 console.log('this.posts', this.posts);
             })
     }

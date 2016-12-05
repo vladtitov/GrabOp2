@@ -9,47 +9,47 @@ import {JoinUsService} from "../join-us/login-service";
 <div class="modal fade" [class.d-block] ="isVisible" [class.in]="isIn">     
     <div class="modal-dialog">
         <div class="modal-content">
-        <a  (click)="onCloseClick()" class="btn fa fa-close"></a>
-                <div class="logo">
-                    <img src="../../images/hero.png" alt="">
-                </div>                
+            <a  (click)="onCloseClick()" class="btn fa fa-close pull-right"></a>
+            <div class="logo">
+                <img src="img/transparent_logo.png" alt="">
+            </div>                
                 
-                    <div class="panel" id="login">
-                        <h3>Sign in to your account</h3>
-                        <hr>                                        
-                        <div *ngIf="wrongMessage" class="errorMessage">
-                            <h5> Incorrect username or password </h5>
-                            <hr>
-                        </div>
-                        <!--<form action="account/login" method="post" role="form" #loginForm="ngForm">-->
-                        <form (ngSubmit)="onSubmit(loginForm.value)" #loginForm="ngForm">                
-                            <div class="form-group">
-                                <input class="form-control"
-                                    placeholder="username" 
-                                    name="username"                                    
-                                    required                         
-                                   
-                                   [(ngModel)]="user.username"
-                                    />                                
-                            </div>
-                            <div class="form-group">
-                                <input   class="form-control"  placeholder="Password"  name="password"    required  minLength = "6"  [type]="showPass ? 'text': 'password'"                
-                                    
-                                    [(ngModel)]="user.password"
-                                                                      
-                                />
-                            </div>                            
-                          
-                            <button class="btn btn-primary btn-lg btn-block"
-                                    type="submit" value="Log In"
-                                    [style.cursor]="cursorStyle"
-                                    [disabled]="toolsDisadled"><span class="fa fa-sign-in"></span>Sign In</button>
-                        </form>
-                        <a class="panel-footer"
-                            (click)="newUser()"
-                            [style.pointer-events]="hrefDisadled ? 'none' : 'auto'"><span class="fa fa-user-plus"></span>Create Account</a>
+            <div class="panel" id="login">
+                <h3>Sign in to your account</h3>
+                <hr>                                        
+                <div *ngIf="wrongMessage" class="errorMessage">
+                    <h5> Incorrect username or password </h5>
+                    <hr>
+                </div>
+                <!--<form action="account/login" method="post" role="form" #loginForm="ngForm">-->
+                <form (ngSubmit)="onSubmit(loginForm.value)" #loginForm="ngForm">                
+                    <div class="form-group">
+                        <input class="form-control"
+                            placeholder="username" 
+                            name="username"                                    
+                            required                         
+                           
+                           [(ngModel)]="user.username"
+                            />                                
                     </div>
-                    <a (click)="resetPass()"><span class="fa fa-unlock-alt"></span>Reset Password</a>                
+                    <div class="form-group">
+                        <input   class="form-control"  placeholder="Password"  name="password"    required  minLength = "6"  [type]="showPass ? 'text': 'password'"                
+                            
+                            [(ngModel)]="user.password"
+                                                              
+                        />
+                    </div>                            
+                  
+                    <button class="btn btn-primary btn-lg btn-block"
+                            type="submit" value="Log In"
+                            [style.cursor]="cursorStyle"
+                            [disabled]="toolsDisadled"><span class="fa fa-sign-in"></span>Sign In</button>
+                </form>
+                <a class="panel-footer"
+                    (click)="newUser()"
+                    [style.pointer-events]="hrefDisadled ? 'none' : 'auto'"><span class="fa fa-user-plus"></span>Create Account</a>
+            </div>
+            <a (click)="resetPass()"><span class="fa fa-unlock-alt"></span>Reset Password</a>                
                 
             </div>
   </div>

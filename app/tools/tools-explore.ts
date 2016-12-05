@@ -12,6 +12,12 @@ import {Component, OnInit} from "@angular/core";
             <a class="dropdown-item" href="#">Internship</a>
             <a class="dropdown-item" href="#">Donate</a>
             <a class="dropdown-item" href="#">Money</a>
+            <h6><span>Categories</span></h6>
+            <a class="dropdown-item fa fa-caret-up" href="#"></a>
+            <a class="dropdown-item" href="#">Item 1</a>
+            <a class="dropdown-item" href="#">Item 2</a>
+            <a class="dropdown-item" href="#">Item 3</a>
+            <a class="dropdown-item fa fa-caret-down" href="#"></a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
         </div>
